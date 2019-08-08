@@ -12,9 +12,14 @@ class Inicio extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
+		$this->load->view('juego');
+		$this->load->view('footer');
+		/*
+		$this->load->view('header');
 		$this->load->view('navbar');
 		$this->mostrar_tabla();
 		$this->load->view('footer');
+		*/
 	}
 
 	// Mostrar formulario de creacion de contacto
