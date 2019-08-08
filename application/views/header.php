@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Login xD</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="<?php echo base_url() ?>Assets/css/bootstrap.min.css">
 	
 </head>
