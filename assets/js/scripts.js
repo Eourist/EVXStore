@@ -6,6 +6,15 @@ var j2_vida = 100;
 
 function render()
 {
+	$('#j1_nombre').html(j1_nombre);
+	$('#j2_nombre').html(j2_nombre);
+	$('#j1_vida').css("width", "100");
+	$('#j2_vida').css("width", "100");
+}
+
+/*
+function renderd()
+{
 	document.getElementById('j1_vida').innerHTML = j1_vida;
 	document.getElementById('j2_vida').innerHTML = j2_vida;
 	if (j1_vida <= 0 || j2_vida <= 0)
@@ -18,8 +27,7 @@ function render()
 	document.getElementById('j1_nombre').innerHTML = j1_nombre;
 	document.getElementById('j2_nombre').innerHTML = j2_nombre;
 }
-
-function atacar(atacante)
+function atacard(atacante)
 {
 	if (atacante == 'j1')
 	{
@@ -39,7 +47,7 @@ function atacar(atacante)
 
 	render();
 }
-function curar(jugador)
+function curard(jugador)
 {
 	if (jugador == 'j1')
 	{
@@ -62,5 +70,5 @@ function curar(jugador)
 
 	render();
 }
-
+*/
 render();

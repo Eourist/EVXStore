@@ -1,0 +1,15 @@
+.c-boton
+{
+	width: 96px;
+}
+.card .vida
+{
+	background-color: gray;
+	padding: 0px;
+}
+.card .vida .vida-estado
+{
+	width: 0px;
+	height: 100%;
+	background-color: red;
+}
