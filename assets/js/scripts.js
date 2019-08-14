@@ -27,7 +27,6 @@ function atacar(atacante)
 		if(j2_vida < 0)
 		{
 			j2_vida = 0;
-
 		}
 	} else if (atacante == 'j2')
 	{

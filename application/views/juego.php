@@ -15,9 +15,13 @@
 		<div class="col-sm-3">
 			<div class="card">
 				<div id="j2_nombre" class="card-header text-center">j2_nombre</div>
-  				<div id="j2_vida" class="card-body text-center">j2_vida</div>
-  				<button type="button" class="btn btn-warning" onclick="atacar('j2');">Atacar</button>
-  				<button type="button" class="btn btn-primary" onclick="curar('j2');">Curarse</button>
+  				<div id="j2_vida" class="card-body">
+  					<button type="button" class="btn btn-warning" onclick="atacar('j2');">Atacar</button>
+  					<button type="button" class="btn btn-primary" onclick="curar('j2');">Curarse</button>
+  				</div>
+  				<div class="card-footer vida">
+  					<div class="vida-estado"></div>
+  				</div>
 			</div>
 		</div>
 
