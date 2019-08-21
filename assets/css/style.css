@@ -1,15 +1,25 @@
-.c-boton
-{
-	width: 96px;
-}
-.card .vida
-{
-	background-color: gray;
+body{
 	padding: 0px;
+	margin: 0px;
 }
-.card .vida .vida-estado
-{
-	width: 0px;
-	height: 100%;
-	background-color: red;
+.evx-navbar .user{
+	background-color: #677875;
+	height: 20px;
+	width: 100%;
+}
+.evx-navbar .cuerpo{
+	background-color: #3f4a48;
+	width: 100%;
+	height: 70px;
+}
+.evx-navbar .cuerpo .logo{
+	padding: 6px;
+	height: 70px;
+	width: 70px;
+	background-color: pink;
+}
+.evx-navbar .cuerpo .menu{
+	height: 50px;
+	width: 40px;
+	background-color: blue;
 }
