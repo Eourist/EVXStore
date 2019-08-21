@@ -1,74 +1,76 @@
-var j1_nombre = "Jugador 1";
-var j2_nombre = "Jugador 2";
+var config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
 
-var j1_vida = 100;
-var j2_vida = 100;
+var game = new Phaser.Game(config);
 
-function render()
+function preload()
 {
-	$('#j1_nombre').html(j1_nombre);
-	$('#j2_nombre').html(j2_nombre);
-	$('#j1_vida').css("width", "100");
-	$('#j2_vida').css("width", "100");
+	this.load.image('sky', 'assets/js/assets/sky.png');
+    this.load.image('ground', 'assets/js/assets/platform.png');
+    this.load.image('star', 'assets/js/assets/star.png');
+    this.load.image('bomb', 'assets/js/assets/bomb.png');
+
+    this.load.spritesheet('dude', 
+        'assets/dude.png',
+        { frameWidth: 32, frameHeight: 48 }
+    );
 }
 
-/*
-function renderd()
+function create()
 {
-	document.getElementById('j1_vida').innerHTML = j1_vida;
-	document.getElementById('j2_vida').innerHTML = j2_vida;
-	if (j1_vida <= 0 || j2_vida <= 0)
-	{
-		alert('Fin del combate');
+	this.add.image(400, 300, 'sky');
 
-		j1_vida = 100;
-		j2_vida = 100;
-	}
-	document.getElementById('j1_nombre').innerHTML = j1_nombre;
-	document.getElementById('j2_nombre').innerHTML = j2_nombre;
+    platforms = this.physics.add.staticGroup();
+
+    platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+
+    platforms.create(600, 400, 'ground');
+    platforms.create(50, 250, 'ground');
+    platforms.create(750, 220, 'ground');
+
+    player = this.physics.add.sprite(100, 450, 'dude');
+    this.physics.add.collider(player, platforms);
+
+	player.setBounce(0.2);
+	player.setCollideWorldBounds(true);
+
+	this.anims.create({
+	    key: 'left',
+	    frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+	    frameRate: 10,
+	    repeat: -1
+	});
+
+	this.anims.create({
+	    key: 'turn',
+	    frames: [ { key: 'dude', frame: 4 } ],
+	    frameRate: 20
+	});
+
+	this.anims.create({
+	    key: 'right',
+	    frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+	    frameRate: 10,
+	    repeat: -1
+	});
 }
-function atacard(atacante)
+
+function update()
 {
-	if (atacante == 'j1')
-	{
-		j2_vida -= 10;
-		if(j2_vida < 0)
-		{
-			j2_vida = 0;
-		}
-	} else if (atacante == 'j2')
-	{
-		j1_vida -= 10;
-		if(j1_vida < 0)
-		{
-			j1_vida = 0;
-		}
-	}
 
-	render();
 }
-function curard(jugador)
-{
-	if (jugador == 'j1')
-	{
-		if(j1_vida > 0)
-			j1_vida += 10;
-		if(j1_vida > 100)
-		{
-			j1_vida = 100;
-
-		}
-	} else if (jugador == 'j2')
-	{
-		if(j2_vida > 0)
-			j2_vida += 10;
-		if(j2_vida > 100)
-		{
-			j2_vida = 100;
-		}
-	}
-
-	render();
-}
-*/
-render();
