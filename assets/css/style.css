@@ -1,7 +1,61 @@
 body{
 	padding: 0px;
 	margin: 0px;
+	font-family: 'Roboto Condensed', sans-serif;
 }
-.navbar{
+.evx-logo{
+	font-size: 30px;
+	color: red;
+	letter-spacing: 2px;
+}
+.evx-logo img{
+	height: 60px;
+	width: 60px;
+}
+.evx-nav-menu{
+	font-size: 20px;
+	height: 100%;
+}
+.evx-nav-menu .nav-item{
+/*	padding-left: 30px;
+	padding-right: 30px;*/
+	padding: 0px;
+	margin: 0px;
+	height: 86px;
+
+	text-align: center;
+	width: 200px;
+	letter-spacing: 2px;
+	font-weight: bolder;
+}
+.evx-nav-menu .nav-item a{
+	padding-top: 30px;
+}
+.navbar-nav{
+	padding: 0px;
+	margin: 0px;
+}
+
+.evx-nav-menu .nav-item .nav-btn-bg{
+	height: 100%;
+	background-color: #ff6b2b;
+	text-align: center;
+	display: none;
+	margin-top: 0px;
+	width: 100%;
+}
+.bg-evx-2{
+	/*background-color: #919191;*/
+	/*background: linear-gradient(#ff4133 20%, #ff8126);*/
+	background: linear-gradient(#f71414 1%, #ff6b2b 80%);
+}
+.evx-usernav .nav-item{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.evx-usernav .nav-item .nav-link{
 	color: white;
+}
+.evx-usernav .nav-item .nav-link a :hover{
+	color: red;
 }

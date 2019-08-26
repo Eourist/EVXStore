@@ -13,6 +13,7 @@ class Inicio extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('inicio');
+		$this->load->view('carrusel');
 		$this->load->view('footer');
 		/*
 		$this->load->view('header');
