@@ -8,4 +8,4 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>Assets/fontawesome/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url('<?php echo base_url(); ?>assets/img/prism.png');">

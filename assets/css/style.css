@@ -1,8 +1,13 @@
+																	/* BASE */
 body{
 	padding: 0px;
 	margin: 0px;
 	font-family: 'Roboto Condensed', sans-serif;
-}
+	/*background: rgb(31,64,61);
+	background: -webkit-linear-gradient(left, rgba(31,64,61,1) 0%, rgba(26,96,93,1) 50%, rgba(31,64,61,1) 100%);
+	background: -o-linear-gradient(left, rgba(31,64,61,1) 0%, rgba(26,96,93,1) 50%, rgba(31,64,61,1) 100%);
+	background: linear-gradient(to right, rgba(31,64,61,1) 0%, rgba(26,96,93,1) 50%, rgba(31,64,61,1) 100%);*/
+}		
 .btn:focus,.btn:active {
    outline: none !important;
    box-shadow: none;
@@ -12,42 +17,40 @@ body{
    box-shadow: none;
    border-color: #ff6b2b;
 }
+																	/* /base */
+																	/* NAVBAR */
 .evx-logo{
-	font-size: 30px;
+	margin-left: 15px;
+
+	font-size: 22px;
 	color: red;
 	letter-spacing: 2px;
 }
 .evx-logo img{
-	height: 60px;
-	width: 60px;
+	height: 40px;
+	width: 40px;
 }
 .evx-nav-menu{
-	font-size: 20px;
+	font-size: 16px;
 	height: 100%;
 }
 .evx-nav-menu .nav-item{
-/*	padding-left: 30px;
-	padding-right: 30px;*/
 	padding: 0px;
 	margin: 0px;
-	height: 86px;
+	height: 50px;
 
 	text-align: center;
-	width: 170px;
+	width: 135px;
 	letter-spacing: 2px;
 	font-weight: bolder;
 }
-.evx-nav-menu .nav-item .nav-link{
-	padding-left: 0px; 
-}
 .evx-nav-menu .nav-item a{
-	padding-top: 30px;
+	padding-top: 15px;
 }
 .navbar-nav{
 	padding: 0px;
 	margin: 0px;
 }
-
 .evx-nav-menu .nav-item .nav-btn-bg{
 	height: 100%;
 	background-color: #ff6b2b;
@@ -57,8 +60,6 @@ body{
 	width: 100%;
 }
 .bg-evx-2{
-	/*background-color: #919191;*/
-	/*background: linear-gradient(#ff4133 20%, #ff8126);*/
 	background: linear-gradient(#f71414 1%, #ff6b2b 80%);
 }
 .evx-usernav .nav-item{
@@ -66,11 +67,14 @@ body{
 	padding-left: 0px;
 }
 .evx-usernav .nav-item .nav-link{
+	font-size: 14px;
 	color: white;
 }
 .evx-usernav .nav-item .nav-link a :hover{
 	color: red;
 }
+																		/* /navbar */
+																		/* MODAL */
 .evx-modal{
 	border-radius: 0px;
 	border-width: 0px;
@@ -122,4 +126,49 @@ body{
 .evx-modal .modal-footer .col-sm-6{
 	padding: 0px;
 	margin: 0px;
+}
+																	/* /modal */
+																	/* CONTAINER */
+.evx-main-container{
+	padding-top: 90px; 
+	background: rgb(82,82,82);
+	background: radial-gradient(circle, rgba(82,82,82,0.8) 0%, rgba(28,28,28,0.8) 100%);
+}
+																	/* /container */
+																	/* PANELES */
+.evx-row-paneles{
+  height: 360px;
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  .evx-row-paneles{
+    height: 300px;
+  }  
+}
+@media (min-width: 768px) and (max-width: 991px){
+  .evx-row-paneles{
+    height: 230px;
+  }
+}
+@media (max-width: 767px){
+  .evx-row-paneles{
+    height: 160px;
+  }
+}
+
+.evx-row-paneles .col-sm-4{
+	padding: 20px;
+}
+.evx-row-paneles .col-sm-4 .evx-panel{
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(#f71414 1%, #ff6b2b 80%);
+	border-radius: 7px;
+}
+.evx-row-paneles .p-izq{
+	padding-left: 25px;
+	padding-right: 15px;
+}
+.evx-row-paneles .p-der{
+	padding-left: 15px;
+	padding-right: 25px;
 }
