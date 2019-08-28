@@ -18,5 +18,19 @@ $(document).ready(function(){
 	 	$("#" + bh).slideUp('fast');
 	 	$("#" + bd).slideDown('fast');
 	});
+
+	$('#evx-login-btn').click(function(){
+		$('#evx-login-modal').modal('show');
+	});
+
+	$('#evx-signup-btn').click(function(){
+		$('#evx-signup-modal').modal('show');
+	});
+
+	$('.evx-modal-btn').hover(function(){
+		$(this).css({'border-bottom' : '9px solid #ff6b2b'});
+		}, function(){
+		$(this).css({'border-bottom' : '9px solid white'});
+	});
 });
 

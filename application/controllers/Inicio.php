@@ -12,8 +12,10 @@ class Inicio extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
-		$this->load->view('inicio');
+		$this->load->view('evx_navbar');
 		$this->load->view('carrusel');
+		$this->load->view('evx_login_modal');
+		$this->load->view('evx_signup_modal');
 		$this->load->view('footer');
 		/*
 		$this->load->view('header');

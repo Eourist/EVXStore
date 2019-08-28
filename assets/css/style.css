@@ -3,6 +3,15 @@ body{
 	margin: 0px;
 	font-family: 'Roboto Condensed', sans-serif;
 }
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}
+.form-control:focus,.form-control:active {
+   outline: none !important;
+   box-shadow: none;
+   border-color: #ff6b2b;
+}
 .evx-logo{
 	font-size: 30px;
 	color: red;
@@ -24,9 +33,12 @@ body{
 	height: 86px;
 
 	text-align: center;
-	width: 200px;
+	width: 170px;
 	letter-spacing: 2px;
 	font-weight: bolder;
+}
+.evx-nav-menu .nav-item .nav-link{
+	padding-left: 0px; 
 }
 .evx-nav-menu .nav-item a{
 	padding-top: 30px;
@@ -58,4 +70,56 @@ body{
 }
 .evx-usernav .nav-item .nav-link a :hover{
 	color: red;
+}
+.evx-modal{
+	border-radius: 0px;
+	border-width: 0px;
+	top: 50px;
+}
+.evx-modal .modal-content{
+	border-radius: 5px; 
+	border-width: 0px;
+}
+.evx-modal .modal-header{
+	height: 40px;
+	background: linear-gradient(#f71414 1%, #ff6b2b 80%);
+	border-radius: 0px; 
+	border-width: 0px;
+}
+.evx-modal .modal-header .modal-title{
+	color: white;
+	letter-spacing: 2px;
+	font-size: 20px;
+	margin-top: -10px;
+	align-content: center;
+}
+.evx-modal .modal-header .btn{
+	text-shadow: none; 
+	color: white; 
+	font-size: 20px;
+	margin-top: -16px;
+	margin-right: -13px;
+	align-content: center;
+}
+.evx-modal .modal-footer{
+	padding: 0px;
+	margin: 0px;
+	height: 40px;
+}
+.evx-modal .modal-footer .btn{
+	margin: 0px;
+	border-radius: 0px;
+	width: 100%;
+	height: 100%;
+	border-width: 0px;
+	background: white;
+	color: black;
+	border-bottom: 9px solid white;
+}
+.evx-modal .modal-footer .evx-modal-btn-o{
+	background: linear-gradient(#ff6b2b 1%, #f71414 80%);
+}
+.evx-modal .modal-footer .col-sm-6{
+	padding: 0px;
+	margin: 0px;
 }
