@@ -3,12 +3,21 @@
     <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;">
         <div class="container">
             <ul class="navbar-nav mr-auto" style="margin-left: 15px;">
+                <?php if ($id == 0) { ?>
                 <li class="nav-item usernav-btn">
                     <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  Ingresar</a>
                 </li>
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i>  Registrarse</a>
+                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i> Registrarse</a>
                 </li>
+                <?php } else { ?>
+                <li class="nav-item usernav-btn">
+                    <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?></a>
+                </li>
+                <li class="nav-item usernav-btn">
+                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i>  <?php echo $correo ?></a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>
@@ -43,10 +52,10 @@
                     </li> -->
                     <li class="nav-item" id="b2">
                         <div class="nav-btn-bg bh" id="b2h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 18px;"></i>  Tienda</a>
+                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 15px;"></i>  Tienda</a>
                         </div>
                         <div class="" id="b2d">
-                            <a href="#" class="nav-link"><i class="fas fa-tags" style="font-size: 18px;"></i>  Tienda</a>
+                            <a href="#" class="nav-link"><i class="fas fa-tags" style="font-size: 15px;"></i>  Tienda</a>
                         </div>
                     </li>
                     <li class="nav-item" id="b3">
@@ -71,7 +80,17 @@
     </nav>
 </div>
 
+File: C:\xampp\htdocs\EVXStore\application\views\evx_navbar.php
+Line: 6
+Function: _error_handler
 
+File: C:\xampp\htdocs\EVXStore\application\controllers\Inicio.php
+Line: 15
+Function: view
+
+File: C:\xampp\htdocs\EVXStore\index.php
+Line: 315
+Function: require_once
 
 <!-- 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">

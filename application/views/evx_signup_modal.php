@@ -51,7 +51,7 @@
         </div>
         <div class="modal-footer">
           <div class="col-sm-6">
-            <button type="button" class="btn evx-modal-btn">Ingresar</button>
+            <button type="submit" class="btn evx-modal-btn">Ingresar</button>
           </div>
           <div class="col-sm-6">
             <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>

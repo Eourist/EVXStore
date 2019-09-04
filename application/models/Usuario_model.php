@@ -12,13 +12,13 @@ class Usuario_model extends CI_Model {
 		return $this->db->insert('evx_usuarios', $data);
 	}
 
-	public function baja($id)
+	public function obtener_evx($atributo, $valor)
 	{
+		$this->db->select('evx_usuarios.nombre', 'evx_usuarios.clave', 'evx_usuarios.correo', 'evx_usuarios.id');
+		$this->db->from('evx_usuarios');
+		$this->db->where('evx_usuarios.'.$atributo, $valor);
 
-	}
-
-	public function modifica($data, $id)
-	{
-
+		$consulta = $this->db->get();
+		return (array) $consulta->row();
 	}
 }

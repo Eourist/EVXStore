@@ -1,4 +1,4 @@
-<div class="container evx-main-container" style="padding-top: 90px; background: rgb(82,82,82);
+<div class="container evx-main-container" style="padding-top: 70px; background: rgb(82,82,82);
 background: radial-gradient(circle, rgba(82,82,82,0.8) 0%, rgba(28,28,28,0.8) 100%);">
   <!--Carousel Wrapper-->
   <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
