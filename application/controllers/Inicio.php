@@ -11,16 +11,22 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
+		/*
+		$data = array(
+			'id',
+			'nombre',
+			'correo'
+		);
 		if (empty($this->session->userdata())){
 			$data['id'] = 0;
 		} else {
 			$data['id'] 	= $this->session->id;
 			$data['nombre'] = $this->session->nombre;
 			$data['correo'] = $this->session->correo;
-		}
+		}*/
 
 		$this->load->view('header');
-		$this->load->view('evx_navbar', $data);
+		$this->load->view('evx_navbar'/*, $data*/);
 		$this->load->view('carrusel');
 		$this->load->view('evx_login_modal');
 		$this->load->view('evx_signup_modal');

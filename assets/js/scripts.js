@@ -28,7 +28,7 @@ $(document).ready(function(){
 	});
 
 	$('.evx-modal-btn').hover(function(){
-		$(this).css({'border-bottom' : '9px solid #ff6b2b'});
+		$(this).css({'border-bottom' : '9px solid #ff2200'});
 		}, function(){
 		$(this).css({'border-bottom' : '9px solid white'});
 	});

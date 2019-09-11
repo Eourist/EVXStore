@@ -2,8 +2,8 @@
     <!-- NAVBAR INICIO DE SESION -->
     <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;">
         <div class="container">
-            <ul class="navbar-nav mr-auto" style="margin-left: 15px;">
-                <?php if ($id == 0) { ?>
+            <ul class="navbar-nav mr-auto" style="margin-left: -8px">
+                <?php if (true) { ?>
                 <li class="nav-item usernav-btn">
                     <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  Ingresar</a>
                 </li>
@@ -12,10 +12,10 @@
                 </li>
                 <?php } else { ?>
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?></a>
+                    <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php //echo $nombre ?></a>
                 </li>
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i>  <?php echo $correo ?></a>
+                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i>  <?php //echo $correo ?></a>
                 </li>
                 <?php } ?>
             </ul>
@@ -34,7 +34,7 @@
             </ul>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-md navbar-light bg-light" style="padding: 0px;">
+    <nav class="navbar navbar-expand navbar-light bg-light" style="padding: 0px;"> <!-- navbar-expand-md -->
         <div class="container">
             <a class="navbar-brand evx-logo" href="#"><img src="<?php echo base_url();?>/Assets/img/evx-logo.png" alt="" class="img-responsive"> Evexnod</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04">
@@ -52,26 +52,26 @@
                     </li> -->
                     <li class="nav-item" id="b2">
                         <div class="nav-btn-bg bh" id="b2h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 15px;"></i>  Tienda</a>
+                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
                         </div>
                         <div class="" id="b2d">
-                            <a href="#" class="nav-link"><i class="fas fa-tags" style="font-size: 15px;"></i>  Tienda</a>
+                            <a href="#" class="nav-link"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
                         </div>
                     </li>
                     <li class="nav-item" id="b3">
                         <div class="nav-btn-bg bh" id="b3h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-users"></i>  Comunidad</a>
+                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-users"></i>  <span class="d-none d-md-inline">Comunidad</span></a>
                         </div>
                         <div class="" id="b3d">
-                            <a href="#" class="nav-link"><i class="fas fa-users"></i>  Comunidad</a>
+                            <a href="#" class="nav-link"><i class="fas fa-users"></i>  <span class="d-none d-md-inline">Comunidad</span></a>
                         </div>
                     </li>
                     <li class="nav-item" id="b4">
                         <div class="nav-btn-bg bh" id="b4h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-newspaper"></i>  Noticias</a>
+                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-newspaper"></i>  <span class="d-none d-md-inline">Noticias</span></a>
                         </div>
                         <div class="" id="b4d">
-                            <a href="#" class="nav-link"><i class="fas fa-newspaper"></i>  Noticias</a>
+                            <a href="#" class="nav-link"><i class="fas fa-newspaper"></i>  <span class="d-none d-md-inline">Noticias</span></a>
                         </div>
                     </li>
                 </ul>
@@ -79,18 +79,6 @@
         </div>
     </nav>
 </div>
-
-File: C:\xampp\htdocs\EVXStore\application\views\evx_navbar.php
-Line: 6
-Function: _error_handler
-
-File: C:\xampp\htdocs\EVXStore\application\controllers\Inicio.php
-Line: 15
-Function: view
-
-File: C:\xampp\htdocs\EVXStore\index.php
-Line: 315
-Function: require_once
 
 <!-- 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">

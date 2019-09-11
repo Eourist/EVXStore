@@ -3,11 +3,12 @@ body{
 	padding: 0px;
 	margin: 0px;
 	font-family: 'Roboto Condensed', sans-serif;
-	/*background: rgb(31,64,61);
-	background: -webkit-linear-gradient(left, rgba(31,64,61,1) 0%, rgba(26,96,93,1) 50%, rgba(31,64,61,1) 100%);
-	background: -o-linear-gradient(left, rgba(31,64,61,1) 0%, rgba(26,96,93,1) 50%, rgba(31,64,61,1) 100%);
-	background: linear-gradient(to right, rgba(31,64,61,1) 0%, rgba(26,96,93,1) 50%, rgba(31,64,61,1) 100%);*/
-}		
+}	
+body.modal-open {
+    width: 100% !important;
+    padding-right: 0 !important;
+    overflow-y: scroll !important;
+}
 .btn:focus,.btn:active {
    outline: none !important;
    box-shadow: none;
@@ -27,21 +28,19 @@ body{
 	letter-spacing: 2px;
 }
 .evx-logo img{
-	height: 40px;
-	width: 40px;
+	height: 50px;
+	width: 50px;
 }
 .evx-nav-menu{
-	font-size: 16px;
+	font-size: 18px;
 	height: 100%;
 }
 .evx-nav-menu .nav-item{
 	padding: 0px;
 	margin: 0px;
-	height: 50px;
+	height: 60px;
 
-	text-align: center;
-	width: 135px;
-	letter-spacing: 2px;
+	text-align: center;	letter-spacing: 2px;
 	font-weight: bolder;
 }
 .evx-nav-menu .nav-item a{
@@ -53,21 +52,33 @@ body{
 }
 .evx-nav-menu .nav-item .nav-btn-bg{
 	height: 100%;
-	background-color: #ff6b2b;
+	/*background-color: #ff6b2b;*/
+	background-color: #ff5100;
+	/*background: linear-gradient(#ff5100, #ff2200);*/
 	text-align: center;
 	display: none;
 	margin-top: 0px;
 	width: 100%;
 }
+@media (max-width: 767px){
+  .evx-nav-menu .nav-item .fas{
+    font-size: 23px !important;
+    padding: 0px 5px 0px 5px;
+  }
+  .evx-nav-menu .nav-item .fa-tags{
+    font-size: 18px !important;
+    padding: 0px 8px 0px 8px
+  }
+}
 .bg-evx-2{
-	background: linear-gradient(#f71414 1%, #ff6b2b 80%);
+	/*background: linear-gradient(#f71414, #ff6b2b);*/
+	background: linear-gradient(#ff2200, #ff5100);
 }
 .evx-usernav .nav-item{
-	padding-right: 0px;
-	padding-left: 0px;
+	padding: 0px;
 }
 .evx-usernav .nav-item .nav-link{
-	font-size: 14px;
+	font-size: 16px;
 	color: white;
 }
 .evx-usernav .nav-item .nav-link a :hover{
@@ -86,7 +97,8 @@ body{
 }
 .evx-modal .modal-header{
 	height: 40px;
-	background: linear-gradient(#f71414 1%, #ff6b2b 80%);
+	/*background: linear-gradient(#f71414 1%, #ff6b2b 80%);*/
+	background: linear-gradient(#ff2200, #ff5100);
 	border-radius: 0px; 
 	border-width: 0px;
 }
@@ -121,7 +133,8 @@ body{
 	border-bottom: 9px solid white;
 }
 .evx-modal .modal-footer .evx-modal-btn-o{
-	background: linear-gradient(#ff6b2b 1%, #f71414 80%);
+	/*background: linear-gradient(#ff6b2b 1%, #f71414 80%);*/
+	background: linear-gradient(#ff2200 1%, #ff5100 80%);
 }
 .evx-modal .modal-footer .col-sm-6{
 	padding: 0px;
@@ -130,7 +143,6 @@ body{
 																	/* /modal */
 																	/* CONTAINER */
 .evx-main-container{
-	padding-top: 90px; 
 	background: rgb(82,82,82);
 	background: radial-gradient(circle, rgba(82,82,82,0.8) 0%, rgba(28,28,28,0.8) 100%);
 }
@@ -151,7 +163,7 @@ body{
 }
 @media (max-width: 767px){
   .evx-row-paneles{
-    height: 160px;
+    display: none;
   }
 }
 

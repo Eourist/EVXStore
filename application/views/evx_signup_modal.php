@@ -13,13 +13,13 @@
             <div class="col">
               <div class="form-group">
                 <label for="f_nombre">Nombre de usuario</label>
-                <input type="text" class="form-control" name="f_nombre">
+                <input type="text" class="form-control" name="f_nombre" autocomplete="off">
               </div>
             </div>
             <div class="col">
               <div class="form-group">
                 <label for="f_clave">Contraseña</label>
-                <input type="password" class="form-control" name="f_clave" >
+                <input type="password" class="form-control" name="f_clave" autocomplete="off">
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
             <div class="col">
               <div class="form-group">
                 <label for="f_correo">Correo electrónico</label>
-                <input type="text" class="form-control" name="f_correo">
+                <input type="text" class="form-control" name="f_correo" autocomplete="off">
               </div>
             </div>
           </div>
