@@ -19,13 +19,18 @@ $(document).ready(function(){
 	 	$("#" + bd).slideDown('fast');
 	});
 
-	$('#evx-login-btn').click(function(){
+	/*$('#evx-login-btn').click(function(){
 		$('#evx-login-modal').modal('show');
 	});
 
 	$('#evx-signup-btn').click(function(){
 		$('#evx-signup-modal').modal('show');
 	});
+
+	$('#evx-logout-btn').click(function(){
+		$('#evx-logout-modal').modal('show');
+		console.log('click!');
+	});*/
 
 	$('.evx-modal-btn').hover(function(){
 		$(this).css({'border-bottom' : '9px solid #ff2200'});

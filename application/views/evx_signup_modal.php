@@ -7,19 +7,19 @@
           <span aria-hidden="true"><i class="fas fa-times"></i></span>
         </button>
       </div>
-      <form action="<?php echo base_url().'inicio/registro'; ?>" method="POST" name="f_registro">
+      <form action="<?php echo base_url().'inicio/sesion'; ?>" method="POST" name="f_registro">
         <div class="modal-body">
           <div class="row">
             <div class="col">
               <div class="form-group">
                 <label for="f_nombre">Nombre de usuario</label>
-                <input type="text" class="form-control" name="f_nombre" autocomplete="off">
+                <input type="text" class="form-control" name="f_nombre" autocomplete="off" required>
               </div>
             </div>
             <div class="col">
               <div class="form-group">
                 <label for="f_clave">Contraseña</label>
-                <input type="password" class="form-control" name="f_clave" autocomplete="off">
+                <input type="password" class="form-control" name="f_clave" autocomplete="off" required>
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
             <div class="col">
               <div class="form-group">
                 <label for="f_correo">Correo electrónico</label>
-                <input type="text" class="form-control" name="f_correo" autocomplete="off">
+                <input type="text" class="form-control" name="f_correo" autocomplete="off" required>
               </div>
             </div>
           </div>

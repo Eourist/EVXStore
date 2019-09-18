@@ -8,30 +8,30 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
+        <form action="<?php echo base_url().'inicio/sesion'; ?>" method="POST" name="f_registro">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="f_nombre">Nombre de usuario</label>
-                <input type="text" class="form-control" name="f_nombre" autocomplete="off">
+                <input type="text" class="form-control" name="f_nombre" autocomplete="off" required>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="f_clave">Contraseña</label>
-                <input type="password" class="form-control" name="f_clave" autocomplete="off">
+                <input type="password" class="form-control" name="f_clave" autocomplete="off" required>
               </div>
             </div>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <div class="col-sm-6">
-          <button type="button" class="btn evx-modal-btn">Ingresar</button>
+          <button type="submit" class="btn evx-modal-btn">Ingresar</button>
         </div>
         <div class="col-sm-6">
           <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
         </div>
+        </form>
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>

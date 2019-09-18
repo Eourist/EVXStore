@@ -1,35 +1,34 @@
 <div style="position: fixed; z-index: 10; width: 100%;">
     <!-- NAVBAR INICIO DE SESION -->
-    <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;">
+    <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;
+    <?php echo (isset($id)) ? 'display: none;' : ''; ?>">
         <div class="container">
             <ul class="navbar-nav mr-auto" style="margin-left: -8px">
-                <?php if (true) { ?>
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  Ingresar</a>
+                    <a class="nav-link" id="evx-login-btn" data-toggle="modal" href='#evx-login-modal'>
+                        <i class="fas fa-user" style="font-size: 14px;"></i>  Ingresar
+                    </a>
                 </li>
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i> Registrarse</a>
+                    <a class="nav-link" id="evx-signup-btn" data-toggle="modal" href='#evx-signup-modal'>
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </a>
                 </li>
-                <?php } else { ?>
-                <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php //echo $nombre ?></a>
-                </li>
-                <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i>  <?php //echo $correo ?></a>
-                </li>
-                <?php } ?>
             </ul>
         </div>
     </nav>
     <!-- NAVBAR USUARIO (SESION INICIADA) -->
-    <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 35px; display: none;">
+    <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;
+    <?php echo (isset($id)) ? '' : 'display: none;'; ?>">
         <div class="container">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-login-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  Nombre</a>
+                    <a href="#" class="nav-link" id="evx-user-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?></a>
                 </li>
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-signup-btn"><i class="fas fa-user-plus"></i>  Cerrar sesión</a>
+                    <a class="nav-link" id="evx-logout-btn" data-toggle="modal" href='#evx-logout-modal'>
+                        <i class="fas fa-sign-out-alt"></i>  Cerrar sesión
+                    </a>
                 </li>
             </ul>
         </div>
