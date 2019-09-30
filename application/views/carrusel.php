@@ -62,13 +62,28 @@ background: radial-gradient(circle, rgba(82,82,82,0.8) 0%, rgba(28,28,28,0.8) 10
   <!--/.Carousel Wrapper-->
   <div class="row evx-row-paneles">
     <div class="col-sm-4 p-izq">
-      <div class="evx-panel"></div>
+      <div class="evx-panel">
+        <span><i class="ico-g fas fa-gamepad"></i></i></span>
+        <div class="panel-texto">
+          
+        </div>
+      </div>
     </div>
     <div class="col-sm-4">
-      <div class="evx-panel"></div>
+      <div class="evx-panel">
+        <span><i class="ico-g fas fa-cloud-download-alt"></i></span>
+        <div class="panel-texto">
+          
+        </div>
+      </div>
     </div>
     <div class="col-sm-4 p-der">
-      <div class="evx-panel"></div>
+      <div class="evx-panel">
+        <span><i class="ico-g fas fa-users"></i></span>
+        <div class="panel-texto">
+          
+        </div>
+      </div>
     </div>
   </div>
 <br>
