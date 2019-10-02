@@ -23,7 +23,7 @@
         <div class="container">
             <ul class="navbar-nav">
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-user-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?></a>
+                    <a href="<?php echo base_url(); ?>inicio/perfil_usuario" class="nav-link" id="evx-user-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?></a>
                 </li>
                 <li class="nav-item usernav-btn">
                     <a class="nav-link" id="evx-logout-btn" data-toggle="modal" href='#evx-logout-modal'>

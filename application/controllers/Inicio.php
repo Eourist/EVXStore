@@ -21,6 +21,13 @@ class Inicio extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function perfil_usuario()
+	{
+		$this->load->view('header');
+		$this->load->view('evx_navbar');
+		$this->load->view('footer');
+	}
+
 	public function cerrar_sesion()
 	{
 		$this->session->sess_destroy();
