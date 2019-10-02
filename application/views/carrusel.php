@@ -1,4 +1,4 @@
-<div class="container evx-main-container" style="padding-top: 70px; background: rgb(82,82,82);
+<div class="container evx-main-container" style="background: rgb(82,82,82);
 background: radial-gradient(circle, rgba(82,82,82,0.8) 0%, rgba(28,28,28,0.8) 100%);">
   <!--Carousel Wrapper-->
   <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
@@ -60,230 +60,40 @@ background: radial-gradient(circle, rgba(82,82,82,0.8) 0%, rgba(28,28,28,0.8) 10
     <!--/.Controls-->
   </div>
   <!--/.Carousel Wrapper-->
-  <div class="row evx-row-paneles">
-    <div class="col-sm-4 p-izq">
-      <div class="evx-panel">
-        <span><i class="ico-g fas fa-gamepad"></i></i></span>
-        <div class="panel-texto">
-          
+<!--
+  <div class="contenedor-paneles">
+    <div class="row evx-row-paneles">
+      <div class="col-sm-3 p-izq">
+        <div class="evx-panel">
+          <span><i class="ico-g fas fa-gamepad"></i></i></span>
+          <div class="panel-texto">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis tempora soluta saepe aspernatur saepe.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="evx-panel">
+          <span><i class="ico-g fas fa-cloud-download-alt"></i></span>
+          <div class="panel-texto">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis tempora soluta saepe aspernatur saepe.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 p-der">
+        <div class="evx-panel">
+          <span><i class="ico-g fas fa-tags"></i></span>
+          <div class="panel-texto">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis tempora soluta saepe aspernatur saepe.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 p-der">
+        <div class="evx-panel">
+          <span><i class="ico-g fas fa-users"></i></span>
+          <div class="panel-texto">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis tempora soluta saepe aspernatur saepe.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
-      <div class="evx-panel">
-        <span><i class="ico-g fas fa-cloud-download-alt"></i></span>
-        <div class="panel-texto">
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 p-der">
-      <div class="evx-panel">
-        <span><i class="ico-g fas fa-users"></i></span>
-        <div class="panel-texto">
-          
-        </div>
-      </div>
-    </div>
-  </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
+  </div>--->

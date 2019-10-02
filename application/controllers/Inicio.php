@@ -14,6 +14,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('evx_navbar');
 		$this->load->view('carrusel');
+		$this->load->view('evx_portal_row_paneles');
 		$this->load->view('evx_login_modal');
 		$this->load->view('evx_signup_modal');
 		$this->load->view('evx_logout_modal');
@@ -33,6 +34,7 @@ class Inicio extends CI_Controller {
 		$f_clave = $this->input->post('f_clave');
 		$f_correo = $this->input->post('f_correo');
 
+		// Si llega el correo por POST quiere decir que es un registro (Alta)
 		if($f_correo)
 		{
 			$data = array (
@@ -52,11 +54,13 @@ class Inicio extends CI_Controller {
 				$this->load->view('header', $userdata);
 				$this->load->view('evx_navbar');
 				$this->load->view('carrusel');
+				$this->load->view('evx_portal_row_paneles');
 				$this->load->view('evx_login_modal');
 				$this->load->view('evx_signup_modal');
 				$this->load->view('evx_logout_modal');
 				$this->load->view('footer');
 			}
+		// Si no llega quiere decir que se esta intentando iniciar sesión
 		} else {
 			$usuario = (array) $this->usuario_model->obtener('nombre', $f_nombre);
 			if ($f_clave == $usuario['clave']){
@@ -66,6 +70,7 @@ class Inicio extends CI_Controller {
 				$this->load->view('header', $userdata);
 				$this->load->view('evx_navbar');
 				$this->load->view('carrusel');
+				$this->load->view('evx_portal_row_paneles');
 				$this->load->view('evx_login_modal');
 				$this->load->view('evx_signup_modal');
 				$this->load->view('evx_logout_modal');

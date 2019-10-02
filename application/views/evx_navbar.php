@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;
     <?php echo (isset($id)) ? '' : 'display: none;'; ?>">
         <div class="container">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item usernav-btn">
                     <a href="#" class="nav-link" id="evx-user-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?></a>
                 </li>
@@ -29,6 +29,11 @@
                     <a class="nav-link" id="evx-logout-btn" data-toggle="modal" href='#evx-logout-modal'>
                         <i class="fas fa-sign-out-alt"></i>  Cerrar sesión
                     </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav" style="float: left">
+                <li class="nav-item usernav-btn">
+                    <a href="#" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-gem" style="font-size: 14px;"></i></a>
                 </li>
             </ul>
         </div>
@@ -41,20 +46,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav ml-auto evx-nav-menu">
-                    <!-- <li class="nav-item" id="b1">
+                    <li class="nav-item" id="b1">
                         <div class="nav-btn-bg bh" id="b1h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-home"></i>  Principal</a>
-                        </div>
-                        <div class="" id="b1d">
-                            <a href="#" class="nav-link"><i class="fas fa-home"></i>  Principal</a>
-                        </div>
-                    </li> -->
-                    <li class="nav-item" id="b2">
-                        <div class="nav-btn-bg bh" id="b2h">
                             <a href="#" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
                         </div>
-                        <div class="" id="b2d">
+                        <div class="" id="b1d">
                             <a href="#" class="nav-link"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item" id="b2">
+                        <div class="nav-btn-bg bh" id="b2h">
+                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-gamepad" style="font-size: 19px;"></i>  <span class="d-none d-md-inline">Juegos</span></a>
+                        </div>
+                        <div class="" id="b2d">
+                            <a href="#" class="nav-link"><i class="fas fa-gamepad" style="font-size: 19px;"></i>  <span class="d-none d-md-inline">Juegos</span></a>
                         </div>
                     </li>
                     <li class="nav-item" id="b3">
