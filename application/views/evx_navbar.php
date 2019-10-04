@@ -1,3 +1,4 @@
+<!-- NAVBAR PRINCIPAL -->
 <div style="position: fixed; z-index: 10; width: 100%;">
     <!-- NAVBAR INICIO DE SESION -->
     <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;
@@ -40,7 +41,7 @@
     </nav>
     <nav class="navbar navbar-expand navbar-light bg-light" style="padding: 0px;"> <!-- navbar-expand-md -->
         <div class="container">
-            <a class="navbar-brand evx-logo" href="#"><img src="<?php echo base_url();?>/Assets/img/evx-logo.png" alt="" class="img-responsive"> Evexnod</a>
+            <a class="navbar-brand evx-logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url();?>/Assets/img/evx_logo_np.png" alt="" class="img-responsive"> Evexnod</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -84,33 +85,137 @@
     </nav>
 </div>
 
-<!-- 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Expand at md</a>
-      
-
-      <div class="collapse navbar-collapse" id="navbarsExample04">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-md-0">
-          <input class="form-control" type="text" placeholder="Search">
-        </form>
+<!-- MODAL DE LOGIN -->
+<div class="modal fade evx-modal" id="evx-login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Inicia sesión en Evexnod</h5>
+        <button type="button" class="btn text-center" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fas fa-times"></i></span>
+        </button>
       </div>
-    </nav> -->
+      <div class="modal-body">
+        <form action="<?php echo base_url().'inicio/sesion'; ?>" method="POST" name="f_registro">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="f_nombre">Nombre de usuario</label>
+                <input type="text" class="form-control" name="f_nombre" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="f_clave">Contraseña</label>
+                <input type="password" class="form-control" name="f_clave" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <div class="col-sm-6">
+          <button type="submit" class="btn evx-modal-btn">Ingresar</button>
+        </div>
+        <div class="col-sm-6">
+          <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
+        </div>
+        </form>
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE LOGOUT -->
+<div class="modal fade evx-modal" id="evx-logout-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-scrollable modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="col-sm-12 modal-title text-center">Cerrar sesión</h5>
+      </div>
+        <div class="modal-body text-center">
+          <h6>¿Estas seguro de que quieres salir?</h6>
+        </div>
+        <div class="modal-footer">
+          <div class="col-sm-6">
+            <button class="btn evx-modal-btn">
+              <a href="<?php echo base_url(); ?>inicio/cerrar_sesion" class="no-link">
+                Si
+              </a>
+            </button>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="btn evx-modal-btn" data-dismiss="modal">No</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE SIGNUP -->
+<div class="modal fade evx-modal" id="evx-signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Unete a Evexnod</h5>
+        <button type="button" class="btn text-center" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fas fa-times"></i></span>
+        </button>
+      </div>
+      <form action="<?php echo base_url().'inicio/sesion'; ?>" method="POST" name="f_registro">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="f_nombre">Nombre de usuario</label>
+                <input type="text" class="form-control" name="f_nombre" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="f_clave">Contraseña</label>
+                <input type="password" class="form-control" name="f_clave" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="f_correo">Correo electrónico</label>
+                <input type="text" class="form-control" name="f_correo" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="form-group">
+            <div class="col-sm-6">
+              <label for="f_nombre">Nombre de usuario</label>
+              <input type="text" class="form-control" name="f_nombre" id="f_nombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-6">
+              <label for="f_nombre">Contraseña</label>
+              <input type="text" class="form-control" name="f_nombre" id="f_nombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f_correo">Correo electrónico</label>
+            <input type="text" class="form-control" name="f_correo" id="f_correo">
+          </div> -->
+        </div>
+        <div class="modal-footer">
+          <div class="col-sm-6">
+            <button type="submit" class="btn evx-modal-btn">Ingresar</button>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
+          </div>
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
