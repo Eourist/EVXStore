@@ -11,7 +11,7 @@ body.modal-open {
 }
 .btn:focus,.btn:active {
    outline: none !important;
-   box-shadow: none;
+   box-shadow: none !important;
 }
 .form-control:focus,.form-control:active {
    outline: none !important;
@@ -419,10 +419,41 @@ body.modal-open {
 		height: 140px;
 	}
 	.panel-b-txt{
-		padding: 9px;
+		text-align: center !important;
+		padding: 4px;
 		margin-top: 15px;
 		height: 100%;
 		color: white;
 		font-size: 16px;
 	}
+}
+.panel-b-txt table tr{
+	border-bottom: 2px solid #f71414;
+}
+.fa-cog:hover{
+	color: grey;
+}
+
+.evx-panel-juego{
+	padding: 15px;
+	text-align: center;
+	height: 400px;
+	background-color: grey;
+	border: 2px solid #f71414;
+}
+
+.evx-panel-juego h4{
+	color: white;
+	text-shadow: 1px 1px black;
+}
+.evx-panel-juego .btn-comprar{
+	letter-spacing: 2px;
+	background: linear-gradient(#f71414, #ff4d17);
+	border: 2px solid white;
+	color: white;
+}
+.evx-panel-juego .btn-comprar:hover{
+	border: 2px solid #ff4d17;
+	background: white;
+	color: #ff4d17;
 }

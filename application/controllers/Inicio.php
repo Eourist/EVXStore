@@ -15,17 +15,26 @@ class Inicio extends CI_Controller {
 		$this->load->view('evx_navbar');
 		$this->load->view('carrusel');
 		$this->load->view('evx_portal_row_paneles');
-		//$this->load->view('evx_login_modal');
-		//$this->load->view('evx_signup_modal');
-		//$this->load->view('evx_logout_modal');
 		$this->load->view('footer');
+		$this->load->view('responsive');
 	}
 
 	public function perfil_usuario()
 	{
 		$this->load->view('header', $userdata = $this->session->userdata());
 		$this->load->view('evx_navbar');
+		$this->load->view('evx_perfil');
 		$this->load->view('footer');
+		$this->load->view('responsive');
+	}
+
+	public function tienda()
+	{
+		$this->load->view('header', $userdata = $this->session->userdata());
+		$this->load->view('evx_navbar');
+		$this->load->view('evx_tienda');
+		$this->load->view('footer');
+		$this->load->view('responsive');
 	}
 
 	public function cerrar_sesion()
@@ -62,10 +71,8 @@ class Inicio extends CI_Controller {
 				$this->load->view('evx_navbar');
 				$this->load->view('carrusel');
 				$this->load->view('evx_portal_row_paneles');
-				//$this->load->view('evx_login_modal');
-				//$this->load->view('evx_signup_modal');
-				//$this->load->view('evx_logout_modal');
 				$this->load->view('footer');
+				$this->load->view('responsive');
 			}
 		// Si no llega quiere decir que se esta intentando iniciar sesión
 		} else {
@@ -78,10 +85,8 @@ class Inicio extends CI_Controller {
 				$this->load->view('evx_navbar');
 				$this->load->view('carrusel');
 				$this->load->view('evx_portal_row_paneles');
-				//$this->load->view('evx_login_modal');
-				//$this->load->view('evx_signup_modal');
-				//$this->load->view('evx_logout_modal');
 				$this->load->view('footer');
+				$this->load->view('responsive');
 			} else {
 				redirect('inicio');
 			}

@@ -49,7 +49,7 @@
                 <ul class="navbar-nav ml-auto evx-nav-menu">
                     <li class="nav-item" id="b1">
                         <div class="nav-btn-bg bh" id="b1h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
+                            <a href="<?php echo base_url(); ?>inicio/tienda" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
                         </div>
                         <div class="" id="b1d">
                             <a href="#" class="nav-link"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
