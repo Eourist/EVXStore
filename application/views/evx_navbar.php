@@ -52,15 +52,15 @@
                             <a href="<?php echo base_url(); ?>inicio/tienda" class="nav-link" style="color: white;"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
                         </div>
                         <div class="" id="b1d">
-                            <a href="#" class="nav-link"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
+                            <a href="<?php echo base_url(); ?>inicio/tienda" class="nav-link"><i class="fas fa-tags" style="font-size: 15px;"></i>  <span class="d-none d-md-inline">Tienda</span></a>
                         </div>
                     </li>
                     <li class="nav-item" id="b2">
                         <div class="nav-btn-bg bh" id="b2h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-gamepad" style="font-size: 19px;"></i>  <span class="d-none d-md-inline">Juegos</span></a>
+                            <a href="<?php echo base_url(); ?>inicio/juegos" class="nav-link" style="color: white;"><i class="fas fa-gamepad" style="font-size: 19px;"></i>  <span class="d-none d-md-inline">Juegos</span></a>
                         </div>
                         <div class="" id="b2d">
-                            <a href="#" class="nav-link"><i class="fas fa-gamepad" style="font-size: 19px;"></i>  <span class="d-none d-md-inline">Juegos</span></a>
+                            <a href="<?php echo base_url(); ?>inicio/juegos" class="nav-link"><i class="fas fa-gamepad" style="font-size: 19px;"></i>  <span class="d-none d-md-inline">Juegos</span></a>
                         </div>
                     </li>
                     <li class="nav-item" id="b3">

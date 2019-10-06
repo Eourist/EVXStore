@@ -37,5 +37,10 @@ $(document).ready(function(){
 		}, function(){
 		$(this).css({'border-bottom' : '9px solid white'});
 	});
+
+	$('.btn-sb').click(function(){
+		var id = $(this).attr('id');
+		$('#collapse-'+id).fadeToggle();
+	});
 });
 

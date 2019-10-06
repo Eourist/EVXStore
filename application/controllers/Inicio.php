@@ -37,6 +37,24 @@ class Inicio extends CI_Controller {
 		$this->load->view('responsive');
 	}
 
+	public function juegos()
+	{
+		$this->load->view('header', $userdata = $this->session->userdata());
+		$this->load->view('evx_navbar');
+		$this->load->view('evx_area_juego');
+		$this->load->view('footer');
+		$this->load->view('responsive');
+	}
+
+	public function juego()
+	{	
+		$this->load->view('header', $userdata = $this->session->userdata());
+		$this->load->view('evx_navbar');
+		$this->load->view('evx_juego_calabozo');
+		$this->load->view('footer');
+		$this->load->view('responsive');
+	}
+
 	public function cerrar_sesion()
 	{
 		$this->session->sess_destroy();
