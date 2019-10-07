@@ -469,3 +469,9 @@ body.modal-open {
 	border: 2px solid white;
 	color: white;
 }
+.t-news{
+	color: white;
+}
+.t-news:hover{
+	color: grey;
+}

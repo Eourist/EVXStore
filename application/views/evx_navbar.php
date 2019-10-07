@@ -34,7 +34,10 @@
             </ul>
             <ul class="navbar-nav" style="float: left">
                 <li class="nav-item usernav-btn">
-                    <a href="#" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-gem" style="font-size: 14px;"></i></a>
+                    <a href="#" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-gem" style="font-size: 15px;"></i></a>
+                </li>
+                <li class="nav-item usernav-btn">
+                    <a href="#" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-coins" style="font-size: 16px;"></i></a>
                 </li>
             </ul>
         </div>
@@ -63,20 +66,20 @@
                             <a href="<?php echo base_url(); ?>inicio/juegos" class="nav-link"><i class="fas fa-gamepad" style="font-size: 19px;"></i>  <span class="d-none d-md-inline">Juegos</span></a>
                         </div>
                     </li>
-                    <li class="nav-item" id="b3">
+                    <!-- <li class="nav-item" id="b3">
                         <div class="nav-btn-bg bh" id="b3h">
                             <a href="#" class="nav-link" style="color: white;"><i class="fas fa-users"></i>  <span class="d-none d-md-inline">Comunidad</span></a>
                         </div>
                         <div class="" id="b3d">
                             <a href="#" class="nav-link"><i class="fas fa-users"></i>  <span class="d-none d-md-inline">Comunidad</span></a>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="nav-item" id="b4">
                         <div class="nav-btn-bg bh" id="b4h">
-                            <a href="#" class="nav-link" style="color: white;"><i class="fas fa-newspaper"></i>  <span class="d-none d-md-inline">Noticias</span></a>
+                            <a href="<?php echo base_url(); ?>inicio/noticias" class="nav-link" style="color: white;"><i class="fas fa-newspaper"></i>  <span class="d-none d-md-inline">Noticias</span></a>
                         </div>
                         <div class="" id="b4d">
-                            <a href="#" class="nav-link"><i class="fas fa-newspaper"></i>  <span class="d-none d-md-inline">Noticias</span></a>
+                            <a href="<?php echo base_url(); ?>inicio/noticias" class="nav-link"><i class="fas fa-newspaper"></i>  <span class="d-none d-md-inline">Noticias</span></a>
                         </div>
                     </li>
                 </ul>
@@ -219,3 +222,7 @@
     </div>
   </div>
 </div>
+
+<script>
+  let base_url = '<?php echo base_url(); ?>';
+</script>

@@ -30,9 +30,12 @@ class Inicio extends CI_Controller {
 
 	public function tienda()
 	{
+		$this->load->model('tienda_model');
+		$juegos = $this->tienda_model->obtener_lista();
+		$lista['juegos'] = $juegos;
 		$this->load->view('header', $userdata = $this->session->userdata());
 		$this->load->view('evx_navbar');
-		$this->load->view('evx_tienda');
+		$this->load->view('evx_tienda', $lista);
 		$this->load->view('footer');
 		$this->load->view('responsive');
 	}
@@ -42,6 +45,15 @@ class Inicio extends CI_Controller {
 		$this->load->view('header', $userdata = $this->session->userdata());
 		$this->load->view('evx_navbar');
 		$this->load->view('evx_area_juego');
+		$this->load->view('footer');
+		$this->load->view('responsive');
+	}
+
+	public function noticias()
+	{
+		$this->load->view('header', $userdata = $this->session->userdata());
+		$this->load->view('evx_navbar');
+		$this->load->view('evx_noticias');
 		$this->load->view('footer');
 		$this->load->view('responsive');
 	}
@@ -92,7 +104,7 @@ class Inicio extends CI_Controller {
 				$this->load->view('footer');
 				$this->load->view('responsive');
 			}
-		// Si no llega quiere decir que se esta intentando iniciar sesión
+		// Si no, quiere decir que se esta intentando iniciar sesión
 		} else {
 			$usuario = (array) $this->usuario_model->obtener('nombre', $f_nombre);
 			if ($f_clave == $usuario['clave']){
@@ -109,5 +121,18 @@ class Inicio extends CI_Controller {
 				redirect('inicio');
 			}
 		}
+	}
+
+	public function ver_juego()
+	{
+		$juego_id = $this->input->post('juego_id');
+		$this->load->model('tienda_model');
+		$data = $this->tienda_model->obtener('id', $juego_id);
+		echo json_encode($data);
+	}
+
+	public function array_push_assoc($array, $key, $value){
+		$array[$key] = $value;
+		return $array;
 	}
 }

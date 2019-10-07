@@ -42,5 +42,22 @@ $(document).ready(function(){
 		var id = $(this).attr('id');
 		$('#collapse-'+id).fadeToggle();
 	});
+
+	$('.btn-comprar').click(function(){
+		var juego_id = $(this).data('juego-id');
+		$.ajax({
+			url: base_url + 'inicio/ver_juego',
+			type: 'POST',
+			data: {juego_id: juego_id},
+		})
+		.done(function(data) {
+			data = jQuery.parseJSON(data);
+			$('#evx-comprar-modal').modal().show();
+			
+			$('#modal-juego-comprar').html('Confirmar ($' + (data.precio - 0.01 )+ ')');
+			$('#modal-juego-nombre').html('<b>' + data.nombre + '</b>');
+		});
+		
+	});
 });
 

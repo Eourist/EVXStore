@@ -34,7 +34,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
-						<h4>Eourist's Dungeon</h4>
+						<h4>NOMBRE DEL JUEGO</h4>
 					</div>
 				</div>
 
@@ -125,7 +125,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
-						<h4>Eourist's Dungeon</h4>
+						<h4>NOMBRE DEL JUEGO</h4>
 					</div>
 				</div>
 
@@ -149,7 +149,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
-						<h4>Eourist's Dungeon</h4>
+						<h4>NOMBRE DEL JUEGO</h4>
 					</div>
 				</div>
 
