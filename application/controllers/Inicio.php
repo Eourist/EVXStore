@@ -64,7 +64,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('evx_navbar');
 		$this->load->view('evx_juego_calabozo');
 		$this->load->view('footer');
-		$this->load->view('responsive');
+		//$this->load->view('responsive');
 	}
 
 	public function cerrar_sesion()
