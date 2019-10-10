@@ -2,5 +2,8 @@
 <script src="<?php echo base_url();?>/Assets/js/popper.min.js"></script>
 <script src="<?php echo base_url();?>/Assets/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url();?>/Assets/js/scripts.js"></script>
+
+
+<script src="<?php echo base_url(); ?>assets/js/juego_script.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/juego_syle.css">
-<script src="<?php echo base_url(); ?>assets/js/juego_script.js"></script>
+<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/juego_syle.css"> -->
 
 <div class="container evx-main-container" style="
 background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 100%);">
@@ -24,7 +23,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 				</button>
 			</div>
 
-			<div class="pieza" id="tablero" style="background: gray; width: 400px; height: 400px;border: 2px solid #f71414;">
+			<div class="pieza animated" id="tablero" style="background: gray; width: 400px; height: 400px;border: 2px solid #f71414;">
 			</div>	
 		</div>
 		<div class="col-sm-7">
@@ -34,6 +33,9 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			</div>
 		</div>	
 	</div>
-
-	
 </div>
+<button type="button" onclick="start()" class="btn btn-default">button</button>
+
+<script>
+	//var base_url = '<?php echo base_url(); ?>';
+</script>
