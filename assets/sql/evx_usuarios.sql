@@ -82,6 +82,6 @@ CREATE TABLE `evx_juegos` (
 ALTER TABLE `evx_juegos`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `evx_usuarios`
+ALTER TABLE `evx_juegos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;

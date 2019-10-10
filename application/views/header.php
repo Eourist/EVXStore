@@ -10,4 +10,4 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
-<body style="color:lime;background-image: url('<?php echo base_url(); ?>assets/img/prism.png');">
+<body style="background-image: url('<?php echo base_url(); ?>assets/img/prism.png');">
