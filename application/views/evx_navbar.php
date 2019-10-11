@@ -24,7 +24,13 @@
         <div class="container">
             <ul class="navbar-nav">
                 <li class="nav-item usernav-btn">
-                    <a href="<?php echo base_url(); ?>inicio/perfil_usuario" class="nav-link" id="evx-user-btn"><i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?></a>
+                    <a href="<?php echo base_url(); ?>inicio/perfil_usuario" class="nav-link" id="evx-user-btn">
+                    	<?php if ($premium == 1) { ?>
+                    	<i class="fas fa-user-astronaut" style="font-size: 14px;"></i>  <?php echo $nombre ?>
+                    	<?php } else { ?>
+                    	<i class="fas fa-user-astronaut" style="font-size: 14px;"></i>  <?php echo $nombre ?>
+                    	<?php } ?>
+                    </a>
                 </li>
                 <li class="nav-item usernav-btn">
                     <a class="nav-link" id="evx-logout-btn" data-toggle="modal" href='#evx-logout-modal'>
@@ -142,11 +148,9 @@
         </div>
         <div class="modal-footer">
           <div class="col-sm-6">
-            <button class="btn evx-modal-btn">
-              <a href="<?php echo base_url(); ?>inicio/cerrar_sesion" class="no-link">
+              <a href="<?php echo base_url(); ?>inicio/cerrar_sesion" class="btn evx-modal-btn no-link">
                 Si
               </a>
-            </button>
           </div>
           <div class="col-sm-6">
             <button type="button" class="btn evx-modal-btn" data-dismiss="modal">No</button>

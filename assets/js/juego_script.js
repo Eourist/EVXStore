@@ -82,6 +82,8 @@
         }
     ];
 
+    var enemigos = [];
+
     var botonUp = $('#dir-up');
     var botonDown = $('#dir-down');
     var botonLeft = $('#dir-left');
@@ -91,48 +93,56 @@
 //
 
 var enemigos_activos;
+var aliados_activos = 3;
+var piezas_recorridas = 0;
+var potenciacion = 1;
+var pieza_actual;
 
-function start(){
-    var pieza_actual;
-    enemigos_activos = 0;
+function movimiento(dir){
+    if (dir != 'start'){
+        piezas_recorridas++;
+        potenciacion += 0.1;
+    }
 
     // Limpiar tablero
-    tablero.html(''); 
-    botonUp.hide();
-    botonDown.hide();
-    botonLeft.hide();
-    botonRight.hide();
+        tablero.html(''); 
+
+        botonUp.hide();
+        botonDown.hide();
+        botonLeft.hide();
+        botonRight.hide();
+
+        enemigos_activos = 0;
+        enemigos = [];
+    //
 
     // Elegir proximo escenario
-    var rand = random(0,10);
-    piezas.forEach(function(item, index) {
-        if (index == rand){
-            pieza_actual = item;
+        var dirOp = (dir == 'up') ? 'down' : ((dir == 'down') ? 'up' : ((dir == 'left') ? 'right' : 'left'));
+        pieza_actual = 0;
+        while (pieza_actual == 0){
+            var rand = randomInt(0,10);
+            piezas.forEach(function(item, index) {
+                if (index == rand && item[dirOp] == true){
+                    pieza_actual = item;
+                }
+            });
         }
-    });
+    //
 
-    //tablero.addClass('bounceInLeft'); animate.css ya esta funcionando
-    // Mostrar fondo
-    tablero.css({
-        "background-image": 'url(' + pieza_actual.imgPath + '.png)',
-        "background-repeat": 'no-repeat',
-        "background-size": '100%'
-    });
+    // Mostrar fondo, enemigos y botones
+        tablero.css({"background-image": 'url(' + pieza_actual.imgPath + '.png)'});
 
-    // Mostrar enemigos y botones
-    if (pieza_actual.up){
-        llenarCamino('up');
-    }
-    if (pieza_actual.down){
-        llenarCamino('down');
-    }
-    if (pieza_actual.left){
-        llenarCamino('left');
-    }
-    if (pieza_actual.right){
-        llenarCamino('right');
-    }
-    console.log(enemigos_activos);
+        if (pieza_actual.up && dir != 'down')
+            llenarCamino('up');
+        if (pieza_actual.down && dir != 'up')
+            llenarCamino('down');
+        if (pieza_actual.left && dir != 'right' && dir != 'start')
+            llenarCamino('left');
+        if (pieza_actual.right && dir != 'left')
+            llenarCamino('right');
+    //
+
+    console.log(enemigos);
 }
 
 function llenarCamino(dir){
@@ -140,46 +150,84 @@ function llenarCamino(dir){
     var m_top = 0;
     var m_left = 0;
 
-    switch (dir)
-    {
-        case 'left':
-            m_top = 170;
-            m_left = 30;
-            botonLeft.show();
-        break;
-        case 'up':
-            m_top = 30;
-            m_left = 170;
-            botonUp.show();
-        break;
-        case 'down':
-            m_top = 320;
-            m_left = 170;
-            botonDown.show()
-        break;
-        case 'right':
-            m_top = 170;
-            m_left = 320;
-            botonRight.show();
-        break;
-    }
+    // Ajustar posición del enemigo
+        switch (dir)
+        {
+            case 'left':
+                m_top = 170;
+                m_left = 30;
+                botonLeft.show();
+            break;
+            case 'up':
+                m_top = 30;
+                m_left = 170;
+                botonUp.show();
+            break;
+            case 'down':
+                m_top = 320;
+                m_left = 170;
+                botonDown.show();
+            break;
+            case 'right':
+                m_top = 170;
+                m_left = 320;
+                botonRight.show();
+            break;
+        }
+    //
 
     // Agregar enemigo con los margenes proporcionados
-    var tablero = $('#tablero');
-    tablero.append('<div id="mob-'+dir+'" style="padding: 14px 20px 20px 20px;position: fixed; margin-top: '+m_top+'px; margin-left: '+m_left+'px; background-color: red; height: 50px; width: 50px;"></div>');
+    tablero.append('<div id="mob-'+dir+'" style="text-align: center; padding: 0px;position: fixed; margin-top: '+m_top+'px; margin-left: '+m_left+'px; background-color: red; height: 50px; width: 50px;"></div>');
     
     // Decidir la cantidad de enemigos que hay en el camino
-    var cantidad_enemigos = random(1,10);
-    cantidad_enemigos = (cantidad_enemigos > 7) ? 2 : 1;
+    var cantidad_enemigos = randomInt(1,10);
+    cantidad_enemigos = (cantidad_enemigos > 7) ? 1 : 1; // Cambiar a "? 2 : 1" si quiero que hallan mas de 1 enemigo
 
-    // Mostrar el numero de enemigos
-    var enemigo = $('#mob-'+dir);
-    enemigo.append('<span>'+cantidad_enemigos+'</span>');
-    enemigos_activos += cantidad_enemigos;
+    // Inicializar enemigo
+        var elem = $('#mob-'+dir);
+        var nombre = "en_" + enemigos_activos;
+        var randomVida = randomFloat(0.8, 1.2);
+        var randomDaño = randomFloat(0.8, 1.2);
+        enemigos[enemigos_activos] = { 
+            nombre: nombre, 
+            salud:  Math.floor(100 * potenciacion * randomVida),
+            daño:   Math.floor(10 * potenciacion * randomDaño),
+            elem:   elem,
+            zona:   dir
+        }
+        enemigos[enemigos_activos].elem.append('<span>' + enemigos[enemigos_activos].salud + '</span>');
+        enemigos_activos += cantidad_enemigos;
+    //
 }
 
-function random(min, max){
+function juego_automatico(){ // ESTO HACE CUALQUIER COSA, REVISAR
+    var caminos = enemigos_activos - 1;
+    for (let i = 0; i < aliados_activos; i++){
+        console.log('ataco el aliado ' + i);
+        let target =  enemigos[randomInt(0, enemigos_activos - 1)];
+        target.salud -= 15;
+        target.elem.html('<span>' + target.salud + '</span>');
+        console.log('el enemigo ' + target.zona + ' recibio daño');
+
+        if (target.salud <= 0){
+            target.elem.hide();
+            enemigos_activos--;
+        }
+    }
+    if (enemigos_activos == 0)
+        movimiento(enemigos[randomInt(0, caminos)].zona);
+}
+
+function randomInt(min, max){
+
     return Math.floor(Math.random() * ((max + 1) - min) ) + min;
 }
 
-start();
+function randomFloat(min, max){
+
+    return (Math.random() * (max - min) + min).toFixed(2);
+}
+
+jQuery(document).ready(function($) {
+    movimiento('start');
+});

@@ -85,3 +85,6 @@ ALTER TABLE `evx_juegos`
 ALTER TABLE `evx_juegos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+ALTER TABLE `evx_usuarios`
+ADD `premium` int(1) DEFAULT 0;
