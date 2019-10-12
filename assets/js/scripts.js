@@ -1,4 +1,14 @@
 $(document).ready(function(){
+
+	if ($('#error-alerta').length > 0){
+		setTimeout(function(){
+			ocultarAlerta();
+		}, 6000);
+	}
+
+	$('#error-alerta').click(function() {
+		ocultarAlerta();
+	});
 	// $(".nav-item").hover(function(){
 	// 	var bg = "bg" + $(this).attr('id');
 	// 	$(bg).slideDown('fast');
@@ -60,4 +70,12 @@ $(document).ready(function(){
 		
 	});
 });
+
+function ocultarAlerta(){
+	$('#error-alerta').hide();
+	$.ajax({
+		url: base_url + 'inicio/cerrar_sesion',
+		type: 'POST'
+	});
+}
 

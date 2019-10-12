@@ -10,16 +10,16 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 	<div class="panel-b">
 		<div class="row">
 			<div class="col-sm-5">
-				<div class="panel-b-img">
+				<div class="panel-b-img noticia-img">
 
 				</div>
 			</div>
-			<div class="col-sm-7">
+			<div class="col-sm-7 align-self-center">
 				<div class="panel-b-txt" style="text-align: left;">
 					<table style="width:100%">
 						<thead>
 							<tr>
-								<th>Nombre del juego</th>
+								<th>[nombre_del_juego]</th>
 								<th>Estadisticas</th>
 							</tr>
 						</thead>
@@ -44,16 +44,16 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 	<div class="panel-b">
 		<div class="row">
 			<div class="col-sm-5">
-				<div class="panel-b-img">
+				<div class="panel-b-img noticia-img">
 
 				</div>
 			</div>
-			<div class="col-sm-7">
+			<div class="col-sm-7 align-self-center">
 				<div class="panel-b-txt" style="text-align: left;">
 					<table style="width:100%">
 						<thead>
 							<tr>
-								<th>Nombre del juego</th>
+								<th>[nombre_del_juego]</th>
 								<th>Estadisticas</th>
 							</tr>
 						</thead>

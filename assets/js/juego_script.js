@@ -179,9 +179,9 @@ function llenarCamino(dir){
     // Agregar enemigo con los margenes proporcionados
     tablero.append('<div id="mob-'+dir+'" style="text-align: center; padding: 0px;position: fixed; margin-top: '+m_top+'px; margin-left: '+m_left+'px; background-color: red; height: 50px; width: 50px;"></div>');
     
-    // Decidir la cantidad de enemigos que hay en el camino
+    // Decidir la cantidad de enemigos que puede haber en un camino
     var cantidad_enemigos = randomInt(1,10);
-    cantidad_enemigos = (cantidad_enemigos > 7) ? 1 : 1; // Cambiar a "? 2 : 1" si quiero que hallan mas de 1 enemigo
+    cantidad_enemigos = (cantidad_enemigos > 7) ? 1 : 1; // Cambiar a "? 2 : 1" si quiero que halla mas de un enemigo
 
     // Inicializar enemigo
         var elem = $('#mob-'+dir);

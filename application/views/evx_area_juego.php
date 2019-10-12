@@ -10,7 +10,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 
 				</div>
 			</div>
-			<div class="col-sm-7">
+			<div class="col-sm-7 align-self-center">
 				<div class="panel-b-txt" style="text-align: left;">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias commodi, deleniti, temporibus totam laudantium et facilis atque voluptas reiciendis nesciunt modi odit!
 				</div>
@@ -23,7 +23,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 				<div class="col-sm-12">
 					<div class="panel-b-txt" style="text-align: center; margin: 0px; padding: 6px">
 						¡Parece que no iniciaste sesión! <br>
-						Para jugar es necesario ingresar con una cuenta de Evexnod. <a href="#">Inicia sesion</a> o <a href="#">registrate</a> ahora.
+						Para jugar es necesario ingresar con una cuenta de Evexnod. <a href="#evx-login-modal" data-toggle="modal">Inicia sesion</a> o <a href="#evx-signup-modal" data-toggle="modal">registrate</a> ahora.
 					</div>
 				</div>
 			</div>
@@ -171,4 +171,3 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 		</div>
 	</div>
 </div>
-

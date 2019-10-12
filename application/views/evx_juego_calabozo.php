@@ -26,7 +26,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="pieza animated" id="tablero" style="background: gray; width: 400px; height: 400px;border: 2px solid #f71414; background-repeat: no-repeat; background-size: 100%;">
 			</div>	
 		</div>
-		<div class="col-sm-7">
+		<div class="col-sm-7 align-self-center">
 			<div class="panel-b-txt" style="margin-top: 15px !important;">
 				Formulario de personalizacion del juego Consequatur debitis quia id voluptates eligendi sunt quam aperiam suscipit enim similique minus eum sed, expedita nobis, laborum provident excepturi nihil quos.
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi esse vero consectetur dolorem eos beatae impedit, quae, rerum maiores mollitia cupiditate aspernatur architecto, aut voluptatibus maxime sit placeat dignissimos eligendi.

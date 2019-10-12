@@ -68,12 +68,15 @@ class Inicio extends CI_Controller {
 
 	public function cerrar_sesion()
 	{
+		$url = 'inicio/'.$this->input->post('f_url');
 		$this->session->sess_destroy();
-		redirect('inicio');
+		redirect($url);
 	}
 
 	public function sesion()
 	{
+		$url = 'inicio/'.$this->input->post('f_url');
+
         $this->load->model('usuario_model');
 		$f_nombre = $this->input->post('f_nombre');
 		$f_clave = $this->input->post('f_clave');
@@ -89,19 +92,20 @@ class Inicio extends CI_Controller {
 			);
 
 			if ($this->usuario_model->obtener('correo', $f_correo)){
-				redirect('inicio');
+				$error = array ( 'error' => 'El correo ingresado ya esta asociado con una cuenta de Evexnod' );
+				$this->session->set_userdata($error);
+				redirect($url);
+			} else if ($this->usuario_model->obtener('nombre', $f_nombre)){
+				$error = array ( 'error' => 'El nombre de usuario ingresado ya esta asociado con una cuenta de Evexnod' );
+				$this->session->set_userdata($error);
+				redirect($url);
 			} else {
 				$this->usuario_model->alta($data);
 				$usuario = (array) $this->usuario_model->obtener('correo', $f_correo);
 				$this->session->set_userdata($usuario);
 				$userdata = $this->session->userdata();
 
-				$this->load->view('header', $userdata);
-				$this->load->view('evx_navbar');
-				$this->load->view('carrusel');
-				$this->load->view('evx_portal_row_paneles');
-				$this->load->view('footer');
-				$this->load->view('responsive');
+				redirect($url);
 			}
 		// Si no, quiere decir que se esta intentando iniciar sesión
 		} else {
@@ -110,14 +114,9 @@ class Inicio extends CI_Controller {
 				$this->session->set_userdata($usuario);
 				$userdata = $this->session->userdata();
 
-				$this->load->view('header', $userdata);
-				$this->load->view('evx_navbar');
-				$this->load->view('carrusel');
-				$this->load->view('evx_portal_row_paneles');
-				$this->load->view('footer');
-				$this->load->view('responsive');
+				redirect($url);
 			} else {
-				redirect('inicio');
+				redirect($url);
 			}
 		}
 	}

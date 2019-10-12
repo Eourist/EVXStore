@@ -3,7 +3,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
   <!--Carousel Wrapper-->
   <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
     <!--Indicators-->
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators" style="z-index: 5">
       <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
       <li data-target="#carousel-example-2" data-slide-to="1"></li>
       <li data-target="#carousel-example-2" data-slide-to="2"></li>

@@ -28,4 +28,10 @@ class Usuario_model extends CI_Model {
 		$consulta = $this->db->get();
 		return $consulta->row();
 	}
+
+	public function modifica($data, $id)
+	{
+		$this->db->where('evx_usuarios.id', $id);
+		return $this->db->update('evx_usuarios', $data);
+	}
 }
