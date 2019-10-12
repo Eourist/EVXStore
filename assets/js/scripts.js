@@ -73,9 +73,6 @@ $(document).ready(function(){
 
 function ocultarAlerta(){
 	$('#error-alerta').hide();
-	$.ajax({
-		url: base_url + 'inicio/cerrar_sesion',
-		type: 'POST'
-	});
+	$.ajax({ url: base_url + 'inicio/cerrar_sesion' });
 }
 
