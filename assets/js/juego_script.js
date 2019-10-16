@@ -93,10 +93,67 @@
 //
 
 var enemigos_activos;
-var aliados_activos = 3;
 var piezas_recorridas = 0;
 var potenciacion = 1;
 var pieza_actual;
+
+// Opciones del jugador
+    var centrarse = false; // Distribucion de ataques = Centrarse en un enemigo hasta matarlo o dañar a todos poco a poco
+    var defenderse = false; // Uso de pociones = Usar pociones para mantener la salud alta o solo al borde de la muerte
+    // Tipos de aliados = Tanque, Supertanque, Guerrero, Superguerrero
+    var cantidad_aliados = 3; // 3 es el maximo, los supertipos ocupan 2 (??¿¿ con gemas se puede comprar un espacio mas ??¿¿)
+    var heroe1 = 'tanque';
+    var heroe2 = 'guerrero';
+    var heroe3 = 'guerrero';
+    // Items = 10 es el maximo (??¿¿ con gemas se pueden comprar  mas ??¿¿)
+    var bombas = 5;
+    var pociones = 5;
+    var heroes = new Array();
+//
+
+function inicializar_heroes(){ // MEJORAR
+    heroe1 = (heroe1 == 'tanque') 
+            ? { salud: 400, daño: 30, tipo: 'tanque' }
+            : { salud: 200, daño: 60, tipo: 'guerrero' };
+    heroe2 = (heroe2 == 'tanque') 
+            ? { salud: 400, daño: 30, tipo: 'tanque' }
+            : { salud: 200, daño: 60, tipo: 'guerrero' };
+    heroe3 = (heroe3 == 'tanque') 
+            ? { salud: 400, daño: 30, tipo: 'tanque' }
+            : { salud: 200, daño: 60, tipo: 'guerrero' };
+    heroes = [heroe1, heroe2, heroe3];
+    console.log("Heroes listos!");
+}
+
+function jugador_atacar(){
+    if (centrarse){
+
+    } else {
+        var heroe_actual = 0;
+        var intervaloAtaque = setInterval(function(){
+            var objetivo = elegir_objetivo();
+            if (objetivo === 0 || heroe_actual === heroes.length){ 
+                clearInterval(intervaloAtaque);
+            }
+
+            if(heroes[heroe_actual].salud > 0){
+                console.log(objetivo);
+                objetivo.salud -= heroes[heroe_actual].daño / 2;
+                console.log('El heroe ' + heroe_actual + ' ataco al enemigo ' + objetivo.dir + '!');
+            } else {
+                console.log('El heroe ' + heroe_actual + ' no puede atacar porque esta muerto!');
+            }
+            heroe_actual++;
+            render();
+        },1000);
+    }
+}
+
+function render(){
+    enemigos.forEach(function(item, index){
+        item.elem.html(item.salud);
+    });
+}
 
 function movimiento(dir){
     if (dir != 'start'){
@@ -200,34 +257,33 @@ function llenarCamino(dir){
     //
 }
 
-function juego_automatico(){ // ESTO HACE CUALQUIER COSA, REVISAR
-    var caminos = enemigos_activos - 1;
-    for (let i = 0; i < aliados_activos; i++){
-        console.log('ataco el aliado ' + i);
-        let target =  enemigos[randomInt(0, enemigos_activos - 1)];
-        target.salud -= 15;
-        target.elem.html('<span>' + target.salud + '</span>');
-        console.log('el enemigo ' + target.zona + ' recibio daño');
-
-        if (target.salud <= 0){
-            target.elem.hide();
-            enemigos_activos--;
+function elegir_objetivo(arreglo = enemigos){
+    // Averiguar cuantos enemigos vivos quedan
+    var posibles_objetivos = -1;
+    arreglo.forEach(function(item, index){
+        if (item.salud > 0){
+            posibles_objetivos++;
         }
+    });
+    // Si hay enemigos vivos elegir uno al azar, si no return 0
+    if (posibles_objetivos == -1){ return 0; }
+    var enemigo_seleccionado = (posibles_objetivos == 0) ? arreglo[0] : 'null';
+    for(let i = 0; i < posibles_objetivos; i++){
+        do {
+            let rand = randomInt(0,posibles_objetivos);
+            if (arreglo[rand] != undefined){
+                enemigo_seleccionado = (arreglo[rand].salud > 0) ? arreglo[rand] : 'null';
+            }
+        } while (enemigo_seleccionado == 'null')
     }
-    if (enemigos_activos == 0)
-        movimiento(enemigos[randomInt(0, caminos)].zona);
+    return enemigo_seleccionado;
 }
 
-function randomInt(min, max){
+function randomInt(min, max){ return Math.floor(Math.random() * ((max + 1) - min) ) + min; }
 
-    return Math.floor(Math.random() * ((max + 1) - min) ) + min;
-}
-
-function randomFloat(min, max){
-
-    return (Math.random() * (max - min) + min).toFixed(2);
-}
+function randomFloat(min, max){ return (Math.random() * (max - min) + min).toFixed(2); }
 
 jQuery(document).ready(function($) {
     movimiento('start');
+    inicializar_heroes();
 });

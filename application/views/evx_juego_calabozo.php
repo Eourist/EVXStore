@@ -28,14 +28,111 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 		</div>
 		<div class="col-sm-7 align-self-center">
 			<div class="panel-b-txt" style="margin-top: 15px !important;">
-				Formulario de personalizacion del juego Consequatur debitis quia id voluptates eligendi sunt quam aperiam suscipit enim similique minus eum sed, expedita nobis, laborum provident excepturi nihil quos.
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi esse vero consectetur dolorem eos beatae impedit, quae, rerum maiores mollitia cupiditate aspernatur architecto, aut voluptatibus maxime sit placeat dignissimos eligendi.
+				<div class="formulario-configuracion">
+					<h3 style="text-align: center; border-bottom: 3px solid #f71414">OPCIONES DE LA PARTIDA</h3>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6">
+								<label for="distribucion_atq">Distribucion de ataques</label>
+								<div class="input-group">
+									<select name="distribucion_atq" id="distribucion_atq" class="form-control">
+										<option value="0">Centrado</option>
+										<option value="0">Disperso</option>
+									</select>
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-primary form-control" style=""><i class="fas fa-question-circle"></i></button>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<label for="estilo_def">Estrategia de combate</label>
+								<div class="input-group">
+									<select name="estilo_def" id="estilo_def" class="form-control">
+										<option value="0">Defensivo</option>
+										<option value="0">Agresivo</option>
+									</select>
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-primary form-control" style=""><i class="fas fa-question-circle"></i></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3">
+								<label>Heroe 1</label>
+								<select name="" id="c1" class="form-control">
+									<option value="0">Guerrero</option>
+									<option value="1">SuperGuerrero</option>
+									<option value="2">Tanque</option>
+									<option value="3">SuperTanque</option>
+								</select>
+							</div>
+							<div class="col-sm-3">
+								<label>Heroe 2</label>
+								<select name="" id="c2" class="form-control">
+									<option value="0">Guerrero</option>
+									<option value="1">SuperGuerrero</option>
+									<option value="2">Tanque</option>
+									<option value="3">SuperTanque</option>
+								</select>
+							</div>
+							<div class="col-sm-3">
+								<label>Heroe 3</label>
+								<select name="" id="c3" class="form-control">
+									<option value="0">Guerrero</option>
+									<option value="1">SuperGuerrero</option>
+									<option value="2">Tanque</option>
+									<option value="3">SuperTanque</option>
+								</select>
+							</div>
+							<div class="col-sm-3">
+								<label>Heroe 4 <i class="fas fa-lock"></i></label>
+								<select name="" id="c4" class="form-control" disabled="">
+									<option value=""></option>
+									<option value="0">Guerrero</option>
+									<option value="1">SuperGuerrero</option>
+									<option value="2">Tanque</option>
+									<option value="3">SuperTanque</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6">
+								<h5 style="text-align: center;">POCIONES</h5>
+								<div class="row" style="height: 80%;">
+									<div class="col-sm-4" style="height: 100%; background-color: red">
+									</div>
+									<div class="col-sm-8">
+										<input type="text" class="form-control">
+										<br>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<h5 style="text-align: center;">EXPLOSIVOS</h5>
+								<div class="row" style="height: 80%;">
+									<div class="col-sm-8">
+										<input type="text" class="form-control">
+										<br>
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-sm-4" style="height: 100%; background-color: red">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+				</div>
 			</div>
 		</div>	
 	</div>
 </div>
-<button type="button" onclick="movimiento('start')" class="btn btn-default">button</button>
-
 <script>
 	//var base_url = '<?php echo base_url(); ?>';
 </script>
