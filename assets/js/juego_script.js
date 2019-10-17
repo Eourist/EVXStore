@@ -97,6 +97,8 @@ var piezas_recorridas = 0;
 var potenciacion = 1;
 var pieza_actual;
 
+var objetivo_c = 'null';
+
 // Opciones del jugador
     var centrarse = false; // Distribucion de ataques = Centrarse en un enemigo hasta matarlo o dañar a todos poco a poco
     var defenderse = false; // Uso de pociones = Usar pociones para mantener la salud alta o solo al borde de la muerte
@@ -113,49 +115,93 @@ var pieza_actual;
 
 function inicializar_heroes(){ // MEJORAR
     heroe1 = (heroe1 == 'tanque') 
-            ? { salud: 400, daño: 30, tipo: 'tanque' }
-            : { salud: 200, daño: 60, tipo: 'guerrero' };
+            ? { salud: 150, daño: 30, tipo: 'tanque' }
+            : { salud: 75, daño: 60, tipo: 'guerrero' };
+    heroe1['nombre'] = 'heroe1';
     heroe2 = (heroe2 == 'tanque') 
-            ? { salud: 400, daño: 30, tipo: 'tanque' }
-            : { salud: 200, daño: 60, tipo: 'guerrero' };
+            ? { salud: 150, daño: 30, tipo: 'tanque' }
+            : { salud: 75, daño: 60, tipo: 'guerrero' };
+    heroe2['nombre'] = 'heroe2';
     heroe3 = (heroe3 == 'tanque') 
-            ? { salud: 400, daño: 30, tipo: 'tanque' }
-            : { salud: 200, daño: 60, tipo: 'guerrero' };
+            ? { salud: 150, daño: 30, tipo: 'tanque' }
+            : { salud: 75, daño: 60, tipo: 'guerrero' };
+    heroe3['nombre'] = 'heroe3';
     heroes = [heroe1, heroe2, heroe3];
-    console.log("Heroes listos!");
 }
 
 function jugador_atacar(){
-    if (centrarse){
-
-    } else {
-        var heroe_actual = 0;
-        var intervaloAtaque = setInterval(function(){
-            var objetivo = elegir_objetivo();
-            if (objetivo === 0 || heroe_actual === heroes.length){ 
-                clearInterval(intervaloAtaque);
-            }
-
+    var heroe_actual = 0; // i
+    // Intervalo de ataque que se repite segun la cantidad de heroes
+    var intervaloAtaque = setInterval(function(){
+        // Elegir objetivo segun "distribucion de ataques"
+        objetivo_c = (objetivo_c == 'null') ? elegir_objetivo() : objetivo_c;
+        var objetivo = (centrarse) ? objetivo_c : elegir_objetivo();
+        if (objetivo == 0){ 
+            // elegir_objetivo() devuelve 0 si no encuentra ninguno vivo
+            console.log('¡No quedan enemigos vivos! Puedes moverte');
+            clearInterval(intervaloAtaque);
+        } else if (heroe_actual === heroes.length){
+            // Ya atacaron todos los heroes
+            console.log('Fin del turno.');
+            clearInterval(intervaloAtaque);
+        } else if (objetivo.salud > 0) {
             if(heroes[heroe_actual].salud > 0){
-                console.log(objetivo);
+                // Atacar
                 objetivo.salud -= heroes[heroe_actual].daño / 2;
-                console.log('El heroe ' + heroe_actual + ' ataco al enemigo ' + objetivo.dir + '!');
+                console.log('El heroe ' + heroe_actual + ' atacó al enemigo en la posición: ' + objetivo.zona + '!');
             } else {
+                // El heroe está muerto
                 console.log('El heroe ' + heroe_actual + ' no puede atacar porque esta muerto!');
             }
             heroe_actual++;
-            render();
-        },1000);
-    }
+        } else {
+            objetivo_c = 'null';
+        }
+        render();
+    }, 1000);
+}
+
+function enemigo_atacar(){
+    var enemigo_actual = 0; // i
+    // Intervalo de ataque que se repite segun la cantidad de heroes
+    var intervaloAtaque = setInterval(function(){
+        // Elegir objetivo segun "distribucion de ataques"
+        var objetivo = elegir_objetivo(heroes);
+        if (objetivo == 0){ 
+            // elegir_objetivo() devuelve 0 si no encuentra ninguno vivo
+            console.log('¡No quedan heroes vivos! Fin del juego');
+            clearInterval(intervaloAtaque);
+        } else if (enemigo_actual === enemigos.length){
+            // Ya atacaron todos los heroes
+            console.log('Fin del turno.');
+            clearInterval(intervaloAtaque);
+        } else if (objetivo.salud > 0) {
+            if(enemigos[enemigo_actual].salud > 0){
+                // Atacar
+                objetivo.salud -= enemigos[enemigo_actual].daño / 2;
+                console.log('El enemigo ' + enemigo_actual + ' atacó a: ' + objetivo.nombre + '! (' + objetivo.salud + ')');
+            } else {
+                // El heroe está muerto
+                console.log('El enemigo ' + enemigo_actual + ' no puede atacar porque esta muerto!');
+            }
+            enemigo_actual++;
+        }
+        render();
+    }, 1000);
 }
 
 function render(){
     enemigos.forEach(function(item, index){
-        item.elem.html(item.salud);
+        if (item.salud <= 0){
+            item.elem.css('background-color', 'rgba(0,0,0,0)');
+            item.elem.html('');
+        } else {
+            item.elem.html(item.salud);
+        }
     });
 }
 
-function movimiento(dir){
+function movimiento(dir, pieza_pre = 'null'){
     if (dir != 'start'){
         piezas_recorridas++;
         potenciacion += 0.1;
@@ -175,7 +221,7 @@ function movimiento(dir){
 
     // Elegir proximo escenario
         var dirOp = (dir == 'up') ? 'down' : ((dir == 'down') ? 'up' : ((dir == 'left') ? 'right' : 'left'));
-        pieza_actual = 0;
+        pieza_actual = (pieza_pre == 'null') ? 0 : piezas[pieza_pre];
         while (pieza_actual == 0){
             var rand = randomInt(0,10);
             piezas.forEach(function(item, index) {
@@ -238,7 +284,7 @@ function llenarCamino(dir){
     
     // Decidir la cantidad de enemigos que puede haber en un camino
     var cantidad_enemigos = randomInt(1,10);
-    cantidad_enemigos = (cantidad_enemigos > 7) ? 1 : 1; // Cambiar a "? 2 : 1" si quiero que halla mas de un enemigo
+    cantidad_enemigos = (cantidad_enemigos > 7) ? 1 : 1; // Cambiar a "? X : 1" si quiero que halla mas de un enemigo
 
     // Inicializar enemigo
         var elem = $('#mob-'+dir);
@@ -258,30 +304,39 @@ function llenarCamino(dir){
 }
 
 function elegir_objetivo(arreglo = enemigos){
-    // Averiguar cuantos enemigos vivos quedan
+    // Averiguar cuantos enemigos vivos quedan y cual es el unico en caso de que solo quede uno
     var posibles_objetivos = -1;
+    var ultimo_objetivo_vivo;
     arreglo.forEach(function(item, index){
         if (item.salud > 0){
             posibles_objetivos++;
+            ultimo_objetivo_vivo = item;
         }
     });
     // Si hay enemigos vivos elegir uno al azar, si no return 0
-    if (posibles_objetivos == -1){ return 0; }
-    var enemigo_seleccionado = (posibles_objetivos == 0) ? arreglo[0] : 'null';
-    for(let i = 0; i < posibles_objetivos; i++){
-        do {
-            let rand = randomInt(0,posibles_objetivos);
-            if (arreglo[rand] != undefined){
-                enemigo_seleccionado = (arreglo[rand].salud > 0) ? arreglo[rand] : 'null';
-            }
-        } while (enemigo_seleccionado == 'null')
+    if (posibles_objetivos == -1){ 
+        return 0;
+    } else {
+        var enemigo_seleccionado = (posibles_objetivos == 0) ? ultimo_objetivo_vivo : 'null';
+        for(let i = 0; i < posibles_objetivos; i++){
+            do {
+                let rand = randomInt(0,posibles_objetivos);
+                if (arreglo[rand] != undefined){
+                    enemigo_seleccionado = (arreglo[rand].salud > 0) ? arreglo[rand] : 'null';
+                }
+            } while (enemigo_seleccionado == 'null')
+        }
+        return enemigo_seleccionado;
     }
-    return enemigo_seleccionado;
 }
 
-function randomInt(min, max){ return Math.floor(Math.random() * ((max + 1) - min) ) + min; }
+function randomInt(min, max){ 
+    return Math.floor(Math.random() * ((max + 1) - min) ) + min;
+    }
 
-function randomFloat(min, max){ return (Math.random() * (max - min) + min).toFixed(2); }
+function randomFloat(min, max){ 
+    return (Math.random() * (max - min) + min).toFixed(2); 
+    }
 
 jQuery(document).ready(function($) {
     movimiento('start');
