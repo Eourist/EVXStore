@@ -1,5 +1,22 @@
 $(document).ready(function(){
 
+	$('.row-monedas').click(function() {
+		$('.row-monedas').children('.fondo-radio').children('.radio-cantidad').removeAttr('checked');
+		$('.row-monedas').css({
+			background: 'white',
+			color: 'black'
+		});
+		$('.row-monedas').removeClass('pulse');
+
+		$(this).children('.fondo-radio').children('.radio-cantidad').attr('checked', 'checked');
+		$(this).css({
+			background: 'linear-gradient(#f71414, #ff4d17)',
+			color: 'white'
+		});
+
+		$(this).addClass('pulse');
+	});
+
 	if ($('#error-alerta').length > 0){
 		setTimeout(function(){
 			ocultarAlerta();

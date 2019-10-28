@@ -163,16 +163,16 @@ function jugador_atacar(){
 
 function enemigo_atacar(){
     var enemigo_actual = 0; // i
-    // Intervalo de ataque que se repite segun la cantidad de heroes
+    // Intervalo de ataque que se repite segun la cantidad de enemigos
     var intervaloAtaque = setInterval(function(){
-        // Elegir objetivo segun "distribucion de ataques"
+        // Elegir objetivo
         var objetivo = elegir_objetivo(heroes);
         if (objetivo == 0){ 
             // elegir_objetivo() devuelve 0 si no encuentra ninguno vivo
             console.log('¡No quedan heroes vivos! Fin del juego');
             clearInterval(intervaloAtaque);
         } else if (enemigo_actual === enemigos.length){
-            // Ya atacaron todos los heroes
+            // Ya atacaron todos los enemigos
             console.log('Fin del turno.');
             clearInterval(intervaloAtaque);
         } else if (objetivo.salud > 0) {
@@ -181,7 +181,7 @@ function enemigo_atacar(){
                 objetivo.salud -= enemigos[enemigo_actual].daño / 2;
                 console.log('El enemigo ' + enemigo_actual + ' atacó a: ' + objetivo.nombre + '! (' + objetivo.salud + ')');
             } else {
-                // El heroe está muerto
+                // El enemigo está muerto
                 console.log('El enemigo ' + enemigo_actual + ' no puede atacar porque esta muerto!');
             }
             enemigo_actual++;
@@ -245,7 +245,7 @@ function movimiento(dir, pieza_pre = 'null'){
             llenarCamino('right');
     //
 
-    console.log(enemigos);
+    console.log('Enemigos: ' + enemigos);
 }
 
 function llenarCamino(dir){

@@ -50,10 +50,7 @@
     </ul>
     <ul class="navbar-nav" style="float: left">
       <li class="nav-item usernav-btn">
-        <a href="#" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-gem" style="font-size: 15px;"></i></a>
-      </li>
-      <li class="nav-item usernav-btn">
-        <a href="#" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-coins" style="font-size: 16px;"></i></a>
+        <a href="#evx-coins-modal" data-toggle="modal" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-gem" style="font-size: 15px;"></i></a>
       </li>
     </ul>
     </div>
@@ -253,6 +250,66 @@
           <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade evx-modal" id="evx-coins-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Comprar EvexGold</h5>
+        <button type="button" class="btn text-center" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fas fa-times"></i></span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Selecciona la cantidad de créditos que quieras comprar</p>
+        <form action="<?php echo base_url().'inicio/compra_monedas'; ?>" method="POST" name="f_compra_monedas">
+          <div class="row-monedas row animated faster" id="mon1-row">
+            <div class="col-sm-2 fondo-radio">
+              <input type="radio" class="radio-cantidad" name="f_cantidad" value="100" class="form-control" id="mon1" >
+            </div>
+            <div class="col-sm-8 fondo-descripcion">
+              100 Monedas
+            </div>
+            <div class="col-sm-2 fondo-precio">
+              $14,99
+            </div>
+          </div>
+          <div class="row-monedas row animated faster">
+            <div class="col-sm-2 fondo-radio">
+              <input type="radio" class="radio-cantidad" name="f_cantidad" value="500" class="form-control"> <!-- CHECKED -->
+            </div>
+            <div class="col-sm-8 fondo-descripcion">
+              500 Monedas
+            </div>
+            <div class="col-sm-2 fondo-precio">
+              $59,99
+            </div>
+          </div>
+          <div class="row-monedas row animated faster">
+            <div class="col-sm-2 fondo-radio">
+              <input type="radio" class="radio-cantidad" name="f_cantidad" value="900" class="form-control">
+            </div>
+            <div class="col-sm-8 fondo-descripcion">
+              900 Monedas
+            </div>
+            <div class="col-sm-2 fondo-precio">
+              $89,99
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <div class="col-sm-6">
+          <input type="hidden" name="f_url" value="<?php echo $this->uri->segment(2) ?>">
+          <button type="submit" class="btn evx-modal-btn">Confirmar</button>
+        </div>
+        <div class="col-sm-6">
+          <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
+        </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
