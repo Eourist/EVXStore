@@ -1,17 +1,13 @@
-
-
 <!-- NAVBAR PRINCIPAL -->
 <div style="position: fixed; z-index: 10; width: 100%;">
   <!-- ALERTA -->
-  <?php if (isset($error)) { ?>
-    <div id="error-alerta">
-      <div class="d-flex justify-content-center">
-        <div class="alert text-center evx-alerta" role="alert">
-          <?php echo $error; ?>
-        </div>
+  <div id="error-alerta" style="display: none">
+    <div class="d-flex justify-content-center">
+      <div class="alert text-center evx-alerta" role="alert" style="user-select: none">
+        <!-- TEXTO DE ALERTA -->
       </div>
     </div>
-  <?php } ?>
+  </div>
   <!-- NAVBAR INICIO DE SESION -->
   <nav class="navbar navbar-expand navbar-dark bg-evx-2 evx-usernav" style="height: 25px;<?php echo (isset($id)) ? 'display: none;' : ''; ?>">
     <div class="container">
@@ -50,7 +46,7 @@
     </ul>
     <ul class="navbar-nav" style="float: left">
       <li class="nav-item usernav-btn">
-        <a href="#evx-coins-modal" data-toggle="modal" class="nav-link" id="evx-user-btn"> <?php echo $creditos ?> <i class="fas fa-gem" style="font-size: 15px;"></i></a>
+        <a href="#evx-coins-modal" data-toggle="modal" class="nav-link" id="evx-user-btn"><span id="mostrar-creditos"> <?php echo $creditos ?> </span><i class="fas fa-coins" style="font-size: 15px;"></i></a>
       </li>
     </ul>
     </div>
@@ -254,6 +250,7 @@
   </div>
 </div>
 
+<!-- MODAL DE MONEDAS -->
 <div class="modal fade evx-modal" id="evx-coins-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
     <div class="modal-content">
@@ -264,11 +261,11 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <p>Selecciona la cantidad de créditos que quieras comprar</p>
-        <form action="<?php echo base_url().'inicio/compra_monedas'; ?>" method="POST" name="f_compra_monedas">
+        <p id="monedas-info" class="animated">Selecciona la cantidad de monedas que quieras comprar</p>
+        <div id="formulario-cantidad">
           <div class="row-monedas row animated faster" id="mon1-row">
             <div class="col-sm-2 fondo-radio">
-              <input type="radio" class="radio-cantidad" name="f_cantidad" value="100" class="form-control" id="mon1" >
+              <input type="radio" class="radio-cantidad" name="f_cantidad" value="100" class="form-control" id="" >
             </div>
             <div class="col-sm-8 fondo-descripcion">
               100 Monedas
@@ -279,7 +276,7 @@
           </div>
           <div class="row-monedas row animated faster">
             <div class="col-sm-2 fondo-radio">
-              <input type="radio" class="radio-cantidad" name="f_cantidad" value="500" class="form-control"> <!-- CHECKED -->
+              <input type="radio" class="radio-cantidad" name="f_cantidad" value="500" class="form-control">
             </div>
             <div class="col-sm-8 fondo-descripcion">
               500 Monedas
@@ -299,21 +296,21 @@
               $89,99
             </div>
           </div>
+        </div>
       </div>
       <div class="modal-footer">
         <div class="col-sm-6">
           <input type="hidden" name="f_url" value="<?php echo $this->uri->segment(2) ?>">
-          <button type="submit" class="btn evx-modal-btn">Confirmar</button>
+          <button type="button" class="btn evx-modal-btn" id="btn-comprar-monedas">Confirmar</button>
         </div>
         <div class="col-sm-6">
           <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
         </div>
-        </form>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  let base_url = '<?php echo base_url(); ?>';
+<script> 
+  let base_url = '<?php echo base_url(); ?>'; 
 </script>

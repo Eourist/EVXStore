@@ -40,7 +40,6 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url().'inicio/comprar_juego'; ?>" method="POST" name="f_registro">
           <div class="row">
             <div class="col-sm-12" style="text-align: center;">
             	<p>¿Estas seguro de que quieres comprar <span id="modal-juego-nombre"></span>?</p>
@@ -49,12 +48,13 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
       </div>
       <div class="modal-footer">
         <div class="col-sm-6">
-          <button type="submit" class="btn evx-modal-btn" id="modal-juego-comprar"></button>
+          <input type="hidden" id="juego-id">
+          <input type="hidden" id="juego-precio">
+          <button type="button" class="btn evx-modal-btn" id="btn-confirmar-compra-juego"></button>
         </div>
         <div class="col-sm-6">
           <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
         </div>
-        </form>
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>

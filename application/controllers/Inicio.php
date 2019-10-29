@@ -21,9 +21,11 @@ class Inicio extends CI_Controller {
 
 	public function perfil_usuario()
 	{
+		$juegos = $this->usuario_model->obtener_juegos($this->session->userdata('id'));
+		$data = array( 'juegos' => $juegos ); // SE PASAN MAL
 		$this->load->view('header', $userdata = $this->session->userdata());
 		$this->load->view('evx_navbar');
-		$this->load->view('evx_perfil');
+		$this->load->view('evx_perfil', $data);
 		$this->load->view('footer');
 		$this->load->view('responsive');
 	}
@@ -66,6 +68,49 @@ class Inicio extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function comprar_monedas()
+	{
+		$cantidad 	= $this->input->post('cantidad');
+		$usuario_id	= $this->session->userdata('id');
+		$creditos 	= $this->session->userdata('creditos');
+
+		$data = array( 'creditos' => $creditos + $cantidad );
+		$this->usuario_model->modifica($data, $usuario_id);
+		$usuario_actualizado = $this->usuario_model->obtener('id', $usuario_id);
+		$this->session->set_userdata('creditos', $usuario_actualizado->creditos);
+
+		echo json_encode($usuario_actualizado);
+	}
+
+	public function comprar_juego()
+	{
+		$precio 	= $this->input->post('precio');
+		$juego_id 	= $this->input->post('juego_id');
+
+		$usuario_id = $this->session->userdata('id');
+		$creditos 	= $this->session->userdata('creditos');
+
+		if ($usuario_id){
+			if ($this->usuario_model->obtener_juego($juego_id, $usuario_id)){
+				$data = array( 'error' => 'Este juego ya está en tu biblioteca');
+			} else {
+				if ($creditos < $precio){
+					$data = array( 'error' => 'Créditos insuficientes');
+				} else {
+					$data_creditos = array( 'creditos' => $creditos - $precio );
+					$this->usuario_model->modifica($data_creditos, $usuario_id);
+					$this->usuario_model->alta_juego($juego_id, $usuario_id);
+
+					$data = $this->usuario_model->obtener('id', $usuario_id);
+					$this->session->set_userdata('creditos', $data->creditos);
+				}
+			}
+		} else {
+			$data = array( 'error' => 'Es necesario iniciar sesión para realizar compras');
+		}
+		echo json_encode($data);
+	}
+
 	public function cerrar_sesion()
 	{
 		$url = 'inicio/'.$this->input->post('f_url');
@@ -92,18 +137,18 @@ class Inicio extends CI_Controller {
 			);
 
 			if ($this->usuario_model->obtener('correo', $f_correo)){
-				$error = array ( 'error' => 'El correo ingresado ya esta asociado con una cuenta de Evexnod' );
+				$error = array ( 'error' => 'El correo ingresado ya esta asociado con una cuenta de Evexnod');
 				$this->session->set_userdata($error);
 				redirect($url);
 			} else if ($this->usuario_model->obtener('nombre', $f_nombre)){
-				$error = array ( 'error' => 'El nombre de usuario ingresado ya esta asociado con una cuenta de Evexnod' );
+				$error = array ( 'error' => 'El nombre de usuario ingresado ya esta asociado con una cuenta de Evexnod');
 				$this->session->set_userdata($error);
 				redirect($url);
 			} else {
 				$this->usuario_model->alta($data);
 				$usuario = (array) $this->usuario_model->obtener('correo', $f_correo);
 				$this->session->set_userdata($usuario);
-				$userdata = $this->session->userdata();
+				//$userdata = $this->session->userdata();
 
 				redirect($url);
 			}
@@ -112,10 +157,13 @@ class Inicio extends CI_Controller {
 			$usuario = (array) $this->usuario_model->obtener('nombre', $f_nombre);
 			if ($f_clave == $usuario['clave']){
 				$this->session->set_userdata($usuario);
-				$userdata = $this->session->userdata();
+				//$userdata = $this->session->userdata();
 
 				redirect($url);
 			} else {
+				$error = array ( 'error' => 'Credenciales de inicio de sesión incorrectos');
+				$this->session->set_userdata($error);
+
 				redirect($url);
 			}
 		}

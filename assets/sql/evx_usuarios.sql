@@ -88,3 +88,12 @@ COMMIT;
 
 ALTER TABLE `evx_usuarios`
 ADD `premium` int(1) DEFAULT 0;
+
+CREATE TABLE `evx_dueños_juegos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` varchar(255) NOT NULL,
+  `juego_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `evx_compras`  ADD `puntaje_maximo` INT(255) NOT NULL DEFAULT '0'  AFTER `juego_id`;
