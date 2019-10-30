@@ -81,7 +81,7 @@ $(document).ready(function(){
 					if (data.error){
 						mostrarAlerta(data.error);
 					} else {
-						$('#mostrar-creditos').html(data.creditos + ' ');
+						//$('#mostrar-creditos').html(data.creditos + ' ');
 						mostrarAlerta('Compra realizada correctamente', 'linear-gradient(#2cc9bf, #38fff2)');
 					}
 

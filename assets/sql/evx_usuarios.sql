@@ -32,7 +32,7 @@ CREATE TABLE `evx_usuarios` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `clave` varchar(255) NOT NULL,
-  `creditos` int(11) NOT NULL,
+  `creditos` int(11) NOT NULL DEFAULT 0,
   `correo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,7 +89,7 @@ COMMIT;
 ALTER TABLE `evx_usuarios`
 ADD `premium` int(1) DEFAULT 0;
 
-CREATE TABLE `evx_dueños_juegos` (
+CREATE TABLE `evx_compras` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_id` varchar(255) NOT NULL,
   `juego_id` int(11) NOT NULL,
@@ -97,3 +97,4 @@ CREATE TABLE `evx_dueños_juegos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `evx_compras`  ADD `puntaje_maximo` INT(255) NOT NULL DEFAULT '0'  AFTER `juego_id`;
+ALTER TABLE `evx_compras` ADD `fecha_compra` DATE NOT NULL AFTER `puntaje_maximo`;

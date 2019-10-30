@@ -34,7 +34,7 @@
             <?php if ($premium == 1) { ?>
             <i class="fas fa-user-astronaut" style="font-size: 14px;"></i>  <?php echo $nombre ?>
             <?php } else { ?>
-            <i class="fas fa-user-astronaut" style="font-size: 14px;"></i>  <?php echo $nombre ?>
+            <i class="fas fa-user" style="font-size: 14px;"></i>  <?php echo $nombre ?>
             <?php } ?>
           </a>
        </li>
@@ -45,13 +45,20 @@
       </li>
     </ul>
     <ul class="navbar-nav" style="float: left">
+      <?php if ($premium == 0) { ?>
+      <li class="nav-item usernav-btn">
+        <a href="#evx-premium-modal" data-toggle="modal" class="nav-link" id="evx-user-btn">
+          <span > Evexnod Club </span>
+        </a>
+      </li>
+      <?php } ?>
       <li class="nav-item usernav-btn">
         <a href="#evx-coins-modal" data-toggle="modal" class="nav-link" id="evx-user-btn"><span id="mostrar-creditos"> <?php echo $creditos ?> </span><i class="fas fa-coins" style="font-size: 15px;"></i></a>
       </li>
     </ul>
     </div>
   </nav>
-  <!-- NAVBAR PRINCIPAL -->
+  <!-- NAVBAR INFERIOR PRINCIPAL -->
   <nav class="navbar navbar-expand navbar-light bg-light" style="padding: 0px;"> <!-- navbar-expand-md -->
     <div class="container">
       <a class="navbar-brand evx-logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url();?>/Assets/img/evx_logo_np.png" alt="" class="img-responsive"> Evexnod</a>
@@ -126,8 +133,6 @@
           <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
         </div>
         </form>
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
@@ -157,30 +162,6 @@
     </div>
   </div>
 </div>
-
-<!-- MODAL DE LOGOUT -->
-<!-- <div class="modal fade evx-modal" id="evx-logout-modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-scrollable modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="col-sm-12 modal-title text-center">Cerrar sesión</h5>
-      </div>
-        <div class="modal-body text-center">
-          <h6>¿Estas seguro de que quieres salir?</h6>
-        </div>
-        <div class="modal-footer">
-          <div class="col-sm-6">
-              <button class="btn evx-modal-btn" onclick="cerrarSesion()">
-                Si
-              </button>
-          </div>
-          <div class="col-sm-6">
-            <button type="button" class="btn evx-modal-btn" data-dismiss="modal">No</button>
-          </div>
-        </div>
-    </div>
-  </div>
-</div> -->
 
 <!-- MODAL DE SIGNUP -->
 <div class="modal fade evx-modal" id="evx-signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -216,23 +197,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="form-group">
-            <div class="col-sm-6">
-              <label for="f_nombre">Nombre de usuario</label>
-              <input type="text" class="form-control" name="f_nombre" id="f_nombre">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-6">
-              <label for="f_nombre">Contraseña</label>
-              <input type="text" class="form-control" name="f_nombre" id="f_nombre">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="f_correo">Correo electrónico</label>
-            <input type="text" class="form-control" name="f_correo" id="f_correo">
-          </div> -->
         </div>
         <div class="modal-footer">
           <div class="col-sm-6">
@@ -242,8 +206,6 @@
           <div class="col-sm-6">
             <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
           </div>
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </form>
     </div>
@@ -305,6 +267,34 @@
         </div>
         <div class="col-sm-6">
           <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE PREMIUM -->
+<div class="modal fade evx-modal" id="evx-premium-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Unete a Evexnod Club</h5>
+        <button type="button" class="btn text-center" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fas fa-times"></i></span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p> ¡Únete a Evexnod Club para disfrutar de los mejores beneficios premium!</p>
+      </div>
+      <div class="modal-footer">
+        <div class="col-sm-6">
+          <form action="<?php echo base_url(); ?>inicio/mejora_premium" method="POST" name="f_mejora_premium">
+            <input type="hidden" name="f_url" value="<?php echo $this->uri->segment(2) ?>">
+            <button type="submit" class="btn evx-modal-btn" id="btn-mejora-premium">¡Unirme ahora! (1200 <i class="fas fa-coins"></i>)</button>
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <button type="button" class="btn evx-modal-btn" data-dismiss="modal">No, gracias</button>
         </div>
       </div>
     </div>

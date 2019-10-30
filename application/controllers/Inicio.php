@@ -68,6 +68,30 @@ class Inicio extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function mejora_premium()
+	{
+		$url 		= 'inicio/'.$this->input->post('f_url');
+		$usuario_id = $this->session->userdata('id');
+		$creditos 	= $this->session->userdata('creditos');
+
+		if ($creditos >= 1200){
+			$data = array(
+				'premium' 	=> 1,
+				'creditos' 	=> $creditos - 1200
+			);
+			$this->usuario_model->modifica($data, $usuario_id);
+			$usuario_actualizado = $this->usuario_model->obtener('id', $usuario_id);
+			$this->session->set_userdata('premium', $usuario_actualizado->premium);
+
+			$this->session->set_userdata('alerta', 'Compra exitosa, ¡Disfruta de los beneficios del Evexnod Club!');
+			$this->session->set_userdata('alerta_color', 'linear-gradient(#2cc9bf, #38fff2)');
+		} else {
+			$this->session->set_userdata('alerta', 'No tienes créditos suficientes para unirte al Evexnod Club');
+			$this->session->set_userdata('alerta_color', 'red');
+		}
+		redirect($url);
+	}
+
 	public function comprar_monedas()
 	{
 		$cantidad 	= $this->input->post('cantidad');
@@ -99,7 +123,12 @@ class Inicio extends CI_Controller {
 				} else {
 					$data_creditos = array( 'creditos' => $creditos - $precio );
 					$this->usuario_model->modifica($data_creditos, $usuario_id);
-					$this->usuario_model->alta_juego($juego_id, $usuario_id);
+					$data_juego = array(
+						'usuario_id' 	=> $usuario_id,
+						'juego_id'		=> $juego_id,
+						'fecha_compra'	=> date('Y-m-d')
+					);
+					$this->usuario_model->alta_juego($data_juego);
 
 					$data = $this->usuario_model->obtener('id', $usuario_id);
 					$this->session->set_userdata('creditos', $data->creditos);
@@ -113,7 +142,7 @@ class Inicio extends CI_Controller {
 
 	public function cerrar_sesion()
 	{
-		$url = 'inicio/'.$this->input->post('f_url');
+		$url = ($this->input->post('f_url') == 'perfil_usuario') ? 'inicio' : 'inicio/'.$this->input->post('f_url');
 		$this->session->sess_destroy();
 		redirect($url);
 	}

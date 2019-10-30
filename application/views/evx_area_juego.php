@@ -12,7 +12,8 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			</div>
 			<div class="col-sm-7 align-self-center">
 				<div class="panel-b-txt" style="text-align: left;">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias commodi, deleniti, temporibus totam laudantium et facilis atque voluptas reiciendis nesciunt modi odit!
+					El área de juego de Evexnod es el mejor lugar para disfrutar de juegos totalmente gratuitos ¡Sin cerrar el navegador!
+					Los juegos estan disponibles para todos los miembros de la comunidad que hallan iniciado sesión.
 				</div>
 			</div>
 		</div>

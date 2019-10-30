@@ -35,12 +35,8 @@ class Usuario_model extends CI_Model {
 		return $this->db->update('evx_usuarios', $data);
 	}
 
-	public function alta_juego($juego_id, $usuario_id)
+	public function alta_juego($data)
 	{
-		$data = array(
-			'juego_id'		=> $juego_id,
-			'usuario_id'	=> $usuario_id
-		);
 		return $this->db->insert('evx_compras', $data);
 	}
 
