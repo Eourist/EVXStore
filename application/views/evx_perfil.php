@@ -6,7 +6,44 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 		Perfil de <?php echo $nombre; ?>
 		<i class="fas fa-cog" style="padding: 8px;float: right;<?php if ($premium == 0) { echo 'display: none;'; } ?>"></i>
 	</div>
-	
+	<div class="panel-b" style="height: auto;">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel-b-txt" style="padding: 15px; padding-bottom: 0px;">
+					<form action="<?php echo base_url(); ?>inicio/editar_usuario">
+						<div class="from-group">
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="">Nickname</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-sm-6">
+									<label for="">E-mail</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+						</div>
+						<div class="from-group">
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="">Nueva contraseña</label>
+									<input type="text" class="form-control">
+								</div>
+								<div class="col-sm-6">
+									<label for="">Confirmar contraseña</label>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+						</div>
+					</form>
+				<div class="panel-b-footer">
+					<button class="btn btn-sm btn-primary btn-form">Aceptar</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<?php if ($premium == 0) { ?>
 	<div class="panel-b" style="height: auto;">
 		<div class="row">
@@ -31,18 +68,18 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 					<table style="width:100%">
 						<thead>
 							<tr>
-								<th><?php echo $juego->nombre ?></th>
-								<th>Estadisticas</th>
+								<th style="font-size: 20px;"><?php echo $juego->nombre ?></th>
+								<th style="font-size: 20px;">Estadisticas</th>
 							</tr>
 						</thead>
+							<th>Fecha de compra</th>
+							<td>19/08/2019</td>
+						</tr>
 						<tr>
 							<th>Puntaje máximo</th>
 							<td><?php echo $juego->puntaje_maximo ?></td>
 						</tr>
 						<tr>
-							<th>Fecha de compra</th>
-							<td>19/08/2019</td>
-						</tr>
 					</table>
 				</div>
 			</div>

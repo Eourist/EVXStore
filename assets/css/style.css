@@ -571,3 +571,25 @@ body.modal-open {
 	padding-top: 8px;
 }
 
+.panel-b-footer{
+	margin-top: 25px;
+	border-top: 2px solid #ff4d17;
+	width: 100%;
+	height: auto;
+}
+.btn-form{
+	float: right;
+	margin: 10px;
+	width: 100px;
+	
+	letter-spacing: 2px;
+	border: 2px solid #ff4d17;
+	background: white;
+	color: #ff4d17;
+}
+.btn-form:hover{
+	transition: 0.5s;
+	background: linear-gradient(#f71414, #ff4d17);
+	border: 2px solid white;
+	color: white;
+}

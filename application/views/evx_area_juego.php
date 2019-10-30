@@ -11,9 +11,9 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 				</div>
 			</div>
 			<div class="col-sm-7 align-self-center">
-				<div class="panel-b-txt" style="text-align: left;">
-					El área de juego de Evexnod es el mejor lugar para disfrutar de juegos totalmente gratuitos ¡Sin cerrar el navegador!
-					Los juegos estan disponibles para todos los miembros de la comunidad que hallan iniciado sesión.
+				<div class="panel-b-txt" style="text-align: left; text-align: justify;">
+					El área de juego de Evexnod es el mejor lugar para disfrutar de juegos totalmente gratuitos desde el navegador. <br>
+					Los juegos estan disponibles para todos los miembros de la comunidad que hayan iniciado sesión.
 				</div>
 			</div>
 		</div>
