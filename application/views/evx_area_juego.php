@@ -13,7 +13,8 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="col-sm-7 align-self-center">
 				<div class="panel-b-txt" style="text-align: left; text-align: justify;">
 					El área de juego de Evexnod es el mejor lugar para disfrutar de juegos totalmente gratuitos desde el navegador. <br>
-					Los juegos estan disponibles para todos los miembros de la comunidad que hayan iniciado sesión.
+					Los juegos estan disponibles sin costo alguno para todos los miembros de la comunidad que hayan iniciado sesión.
+					<?php echo $puntajes[0]->nombre_usuario ?>
 				</div>
 			</div>
 		</div>
@@ -35,13 +36,14 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
-						<h4>NOMBRE DEL JUEGO</h4>
+						<h4>TOMB QUEST</h4>
 					</div>
 				</div>
 
 				<div class="row" style="height: 80%; padding-bottom: 15px;">
-					<div class="col-sm-12" id="collapse-sb-1" style="height: 100%; background: rgba(10, 10, 10, 0.7); padding-bottom: 10px; display: none;">
-						<table style="width: 100%; margin-top:15px; font-size: 14px; color: white">
+					<div class="col-sm-12" id="collapse-sb-1" style="height: 100%; background: rgba(10, 10, 10, 0.7); padding-bottom: 50px; display: none;">
+						<h3 style="margin-top: 15px; color: white; font-size: 20px;">TOP 5 MEJORES JUGADORES</h3>
+						<table style="width: 100%; margin-top:20px; font-size: 17px; color: white" class="tabla-puntajes">
 							<thead>
 								<tr>
 									<th>Fecha</th>
@@ -50,63 +52,13 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-									
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-									
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-									
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-									
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-									
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-									
-								</tr>
-								<tr>
-									<td>23/4/2013</td>
-									<td>Eourist</td>
-									<td>9999</td>
-									
-								</tr>
+								<?php for($i = 0; $i < 5; $i++) { ?>
+									<tr>
+										<td><?php echo $puntajes[$i]->fecha ?></td>
+										<td><?php echo $puntajes[$i]->nombre_usuario ?></td>
+										<td><?php echo $puntajes[$i]->puntaje ?></td>
+									</tr>
+								<?php } ?>
 							</tbody>
 						</table>
 					</div>
@@ -126,19 +78,20 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
-						<h4>NOMBRE DEL JUEGO</h4>
+						<h4>NEVERENDING CRUSADE</h4>
 					</div>
 				</div>
 
 				<div class="row" style="height: 80%; padding-bottom: 15px;">
-					<div class="col-sm-12" id="collapse-sb-2" style="height: 100%; background: rgba(10, 10, 10, 0.7); padding-bottom: 10px; display: none">
-						
+					<div class="col-sm-12 align-self-center text-center " id="collapse-sb-2" style="height: 100%; background: rgba(10, 10, 10, 0.7); padding-bottom: 10px; display: none; color: white; font-size: 18px; padding-top: 90px;">
+						<h4>¡Error!</h4>
+						<p>Este juego no está disponible en estos momentos. Intenta más tarde.</p>
 					</div>
 				</div>
 
 				<div class="row" style="height: 10%; <?php echo (isset($id)) ? '' : 'display: none'; ?>">
 					<div class="col-sm-10" style="padding-right: 5px;">
-						<a class="btn btn-comprar" style="width: 100%" href="<?php echo base_url() ?>inicio/juego">JUGAR</a>
+						<button class="btn btn-comprar" style="width: 100%" disabled>JUGAR</button>
 					</div>
 					<div class="col-sm-2" style="padding-left: 0px; text-align: center;">
 						<button class="btn btn-comprar btn-sb" style="width: 100%;" id="sb-2"><i class="fas fa-info-circle"></i></button>
@@ -150,19 +103,20 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
-						<h4>NOMBRE DEL JUEGO</h4>
+						<h4>MON FIGHT</h4>
 					</div>
 				</div>
 
 				<div class="row" style="height: 80%; padding-bottom: 15px;">
-					<div class="col-sm-12" id="collapse-sb-3" style="height: 100%; background: rgba(10, 10, 10, 0.7); padding-bottom: 10px; display: none">
-						
+					<div class="col-sm-12 align-self-center text-center " id="collapse-sb-3" style="height: 100%; background: rgba(10, 10, 10, 0.7); padding-bottom: 10px; display: none; color: white; font-size: 18px; padding-top: 90px;">
+						<h4>¡Error!</h4>
+						<p>Este juego no está disponible en estos momentos. Intenta más tarde.</p>
 					</div>
 				</div>
 
 				<div class="row" style="height: 10%; <?php echo (isset($id)) ? '' : 'display: none'; ?>">
 					<div class="col-sm-10" style="padding-right: 5px;">
-						<a class="btn btn-comprar" style="width: 100%" href="<?php echo base_url() ?>inicio/juego">JUGAR</a>
+						<button class="btn btn-comprar" style="width: 100%" disabled>JUGAR</button>
 					</div>
 					<div class="col-sm-2" style="padding-left: 0px; text-align: center;">
 						<button class="btn btn-comprar btn-sb" style="width: 100%;" id="sb-3"><i class="fas fa-info-circle"></i></button>

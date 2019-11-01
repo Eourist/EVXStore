@@ -45,6 +45,7 @@ class Usuario_model extends CI_Model {
 		$this->db->select('
 			evx_compras.id as compra_id, 
 			evx_compras.puntaje_maximo as puntaje_maximo,
+			evx_compras.fecha_compra as fecha_compra,
 
 			evx_juegos.*,
 

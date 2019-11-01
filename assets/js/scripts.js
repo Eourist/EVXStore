@@ -55,12 +55,20 @@ $(document).ready(function(){
 		.done(function(data) {
 			data = jQuery.parseJSON(data);
 			$('#evx-comprar-modal').modal().show();
+
+			var precio = (data.premium == 1) ? (data.precio * 0.8) : data.precio;
+
+			if (data.premium == 1){
+				$('#modal-juego-precio').html('<s style="color: darkgray">' + data.precio + ' </s> ' + precio + ' <i class="fas fa-coins"></i>');
+			} else {
+				$('#modal-juego-precio').html(precio + ' <i class="fas fa-coins"></i>');
+			}
 			
-			$('#btn-confirmar-compra-juego').html('Confirmar ($' + (data.precio - 0.01 )+ ')');
+			$('#btn-confirmar-compra-juego').html('Confirmar (' + precio + ' <i class="fas fa-coins"</i>)');
 			$('#modal-juego-nombre').html('<b>' + data.nombre + '</b>');
 
 			$('#juego-id').val(juego_id);
-			$('#juego-precio').val(data.precio);
+			$('#juego-precio').val(precio);
 		});
 	});
 
@@ -81,7 +89,7 @@ $(document).ready(function(){
 					if (data.error){
 						mostrarAlerta(data.error);
 					} else {
-						//$('#mostrar-creditos').html(data.creditos + ' ');
+						$('#mostrar-creditos').html(data.creditos + ' ');
 						mostrarAlerta('Compra realizada correctamente', 'linear-gradient(#2cc9bf, #38fff2)');
 					}
 
@@ -131,6 +139,15 @@ $(document).ready(function(){
 			}, 1000);
 			$('#btn-comprar-monedas').html('Confirmar')
 			$('#btn-comprar-monedas').removeAttr('disabled');
+		}
+	});
+
+	$('#btn-editar-perfil').click(function(event) {
+		var premium = $(this).data('premium');
+		if (premium == 1){
+			$('#form-editar-usuario').slideToggle();
+		} else {
+			$('#error-editar-usuario').slideToggle();
 		}
 	});
 });

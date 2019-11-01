@@ -30,4 +30,16 @@ class Tienda_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function obtener_puntajes_juego($juego_id)
+	{
+		$this->db->select('evx_puntajes.*, evx_usuarios.nombre as nombre_usuario');
+		$this->db->from('evx_puntajes');
+		$this->db->where('evx_puntajes.juego_id =', $juego_id);
+		$this->db->join('evx_usuarios', 'evx_puntajes.usuario_id = evx_usuarios.id');
+		$this->db->order_by('evx_puntajes.puntaje', 'DESC');
+
+		$query = $this->db->get();
+		return $query->result();
+	}
 }

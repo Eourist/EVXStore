@@ -16,7 +16,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 					</div>
 					<div class="row" style="height: 80%;">
 						<div class="col-sm-12">
-							<h4>$<?php echo ($juego->precio - 0.01); ?></h4>
+							<h4><?php echo ($juego->precio); ?> <i class="fas fa-coins" style="font-size: 18px;"></i></h4>
 						</div>
 					</div>
 					<div class="row" style="height: 10%;">
@@ -42,7 +42,9 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
       <div class="modal-body">
           <div class="row">
             <div class="col-sm-12" style="text-align: center;">
-            	<p>¿Estas seguro de que quieres comprar <span id="modal-juego-nombre"></span>?</p>
+              <p>¿Estas seguro de que quieres comprar <span id="modal-juego-nombre"></span>?</p>
+              <p>Los miembros del EvexnodClub obtienen un 20% de descuento</p>
+              <p>Precio (<?php echo ($premium == 1) ? '-20%' : 'normal'; ?>): <span id="modal-juego-precio"></span></p>
             </div>
           </div>
       </div>

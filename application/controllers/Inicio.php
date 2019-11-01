@@ -11,7 +11,7 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('header', $userdata = $this->session->userdata());
+		$this->load->view('header', $this->session->userdata());
 		$this->load->view('evx_navbar');
 		$this->load->view('carrusel');
 		$this->load->view('evx_portal_row_paneles');
@@ -44,9 +44,14 @@ class Inicio extends CI_Controller {
 
 	public function juegos()
 	{
+		$this->load->model('tienda_model');
+		$puntajes = $this->tienda_model->obtener_puntajes_juego(6);
+
+		$data = array('puntajes' => $puntajes);
+
 		$this->load->view('header', $userdata = $this->session->userdata());
 		$this->load->view('evx_navbar');
-		$this->load->view('evx_area_juego');
+		$this->load->view('evx_area_juego', $data);
 		$this->load->view('footer');
 		$this->load->view('responsive');
 	}
@@ -198,16 +203,62 @@ class Inicio extends CI_Controller {
 		}
 	}
 
+	public function editar_usuario()
+	{
+		$usuario_id 	= $this->session->userdata('id');
+		$nuevo_nombre 	= $this->input->post('f_nuevo_nombre');
+		$nuevo_correo 	= $this->input->post('f_nuevo_correo');
+
+		$data = array(
+			'nombre' => $nuevo_nombre,
+			'correo' => $nuevo_correo
+		);
+
+		$this->usuario_model->modifica($data, $usuario_id);
+		$usuario = $this->usuario_model->obtener('id', $usuario_id);
+
+		//$this->session->set_userdata($usuario);
+		$this->session->set_userdata('nombre', $usuario->nombre);
+		$this->session->set_userdata('correo', $usuario->correo);
+
+		$this->session->set_userdata('alerta', 'Datos de usuario editados correctamente');
+		$this->session->set_userdata('alerta_color', 'linear-gradient(#2cc9bf, #38fff2)');
+
+		redirect('inicio/perfil_usuario');
+	}
+
 	public function ver_juego()
 	{
 		$juego_id = $this->input->post('juego_id');
 		$this->load->model('tienda_model');
-		$data = $this->tienda_model->obtener('id', $juego_id);
+		$data = (array)$this->tienda_model->obtener('id', $juego_id);
+		$data['premium'] = $this->session->userdata('premium');
+
 		echo json_encode($data);
 	}
 
-	public function array_push_assoc($array, $key, $value){
+	public function array_push_assoc($array, $key, $value)
+	{
 		$array[$key] = $value;
 		return $array;
+	}
+
+	// Funciones de debug
+	public function prem()
+	{
+		$usuario_id = $this->session->userdata('id');
+		$premium = $this->session->userdata('premium');
+
+		if ($premium == 1){
+			$data = array('premium' => 0);
+		} else {
+
+			$data = array('premium' => 1);
+		}
+
+		$this->usuario_model->modifica($data, $usuario_id);
+		$usuario = $this->usuario_model->obtener('id', $usuario_id);
+		$this->session->set_userdata('premium', $usuario->premium);
+		redirect('inicio');
 	}
 }
