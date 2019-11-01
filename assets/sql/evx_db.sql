@@ -71,7 +71,7 @@ INSERT INTO `evx_juegos` (`id`, `nombre`, `precio`, `descripcion`, `imagen`) VAL
 (3, 'Defense of Twedjen Tower', 1500, '', ''),
 (4, 'Endless Asteroids', 1000, '', ''),
 (5, 'Battle of Dungeon: Defender', 1500, '', ''),
-(6, 'Placeholder', 0, '', '');
+(6, 'Tomb Quest', 0, '', '');
 
 -- --------------------------------------------------------
 
