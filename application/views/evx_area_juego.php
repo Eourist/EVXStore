@@ -78,7 +78,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
-						<h4>NEVERENDING CRUSADE</h4>
+						<h4>ETERNAL CRUSADE</h4>
 					</div>
 				</div>
 

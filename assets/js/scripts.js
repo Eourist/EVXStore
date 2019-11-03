@@ -25,13 +25,13 @@ $(document).ready(function(){
 	$(".nav-item").hover(function(){
   		var bh = $(this).attr('id') + 'h';
 		var bd = $(this).attr('id') + 'd';
-	 	$("#" + bh).slideDown('fast');
-	 	$("#" + bd).slideUp('fast');
+	 	$("#" + bh).slideDown(130);
+	 	$("#" + bd).slideUp(130);
   		}, function(){
   		var bh = $(this).attr('id') + 'h';
 		var bd = $(this).attr('id') + 'd';
-	 	$("#" + bh).slideUp('fast');
-	 	$("#" + bd).slideDown('fast');
+	 	$("#" + bh).slideUp(130);
+	 	$("#" + bd).slideDown(130);
 	});
 
 	$('.evx-modal-btn').hover(function(){

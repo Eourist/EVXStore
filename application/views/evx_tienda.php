@@ -44,7 +44,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
             <div class="col-sm-12" style="text-align: center;">
               <p>¿Estas seguro de que quieres comprar <span id="modal-juego-nombre"></span>?</p>
               <p>Los miembros del EvexnodClub obtienen un 20% de descuento</p>
-              <p>Precio (<?php echo ($premium == 1) ? '-20%' : 'normal'; ?>): <span id="modal-juego-precio"></span></p>
+              <p>Precio (<?php echo (isset($id) && $premium == 1) ? '-20%' : 'normal'; ?>): <span id="modal-juego-precio"></span></p>
             </div>
           </div>
       </div>
@@ -57,8 +57,6 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
         <div class="col-sm-6">
           <button type="button" class="btn evx-modal-btn" data-dismiss="modal">Cancelar</button>
         </div>
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>

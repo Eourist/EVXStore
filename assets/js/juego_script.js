@@ -115,16 +115,16 @@ var objetivo_c = 'null';
 
 function inicializar_heroes(){ // MEJORAR
     heroe1 = (heroe1 == 'tanque') 
-            ? { salud: 150, daño: 30, tipo: 'tanque' }
-            : { salud: 75, daño: 60, tipo: 'guerrero' };
+            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque' }
+            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero' };
     heroe1['nombre'] = 'heroe1';
     heroe2 = (heroe2 == 'tanque') 
-            ? { salud: 150, daño: 30, tipo: 'tanque' }
-            : { salud: 75, daño: 60, tipo: 'guerrero' };
+            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque' }
+            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero' };
     heroe2['nombre'] = 'heroe2';
     heroe3 = (heroe3 == 'tanque') 
-            ? { salud: 150, daño: 30, tipo: 'tanque' }
-            : { salud: 75, daño: 60, tipo: 'guerrero' };
+            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque' }
+            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero' };
     heroe3['nombre'] = 'heroe3';
     heroes = [heroe1, heroe2, heroe3];
 }
@@ -140,12 +140,16 @@ function jugador_atacar(){
             // elegir_objetivo() devuelve 0 si no encuentra ninguno vivo
             console.log('¡No quedan enemigos vivos! Puedes moverte');
             clearInterval(intervaloAtaque);
-        } else if (heroe_actual === heroes.length){
+        }  else if (heroe_actual === heroes.length) {
             // Ya atacaron todos los heroes
             console.log('Fin del turno.');
             clearInterval(intervaloAtaque);
+        } else if (curacion(heroes[heroe_actual])) {
+            // Decidir si se cura o no segun "estrategia de combate" y la salud actual
+            heroe_actual++;
+            console.log('El heroe ' + heroe_actual + ' usó una poción para curarse');
         } else if (objetivo.salud > 0) {
-            if(heroes[heroe_actual].salud > 0){
+            if (heroes[heroe_actual].salud > 0) {
                 // Atacar
                 objetivo.salud -= heroes[heroe_actual].daño / 2;
                 console.log('El heroe ' + heroe_actual + ' atacó al enemigo en la posición: ' + objetivo.zona + '!');
@@ -157,8 +161,37 @@ function jugador_atacar(){
         } else {
             objetivo_c = 'null';
         }
+        
         render();
     }, 1000);
+}
+
+function curacion(heroe){
+    console.log(heroe);
+    if (defenderse){
+        if (heroe.salud < (heroe.salud_in - 40)){
+            heroe.salud += 40;
+            pociones --;
+            return true;
+        }
+    } else {
+        if (heroe.salud < (heroe.salud_in * 0.7)){
+            // Si tiene menos del 70%
+            if (randomInt(1, 10) > 9){
+                heroe.salud += 40;
+                pociones --;
+                return true;
+            }
+        } else if (heroe.salud < (heroe.salud_in * 0.4)){
+            // Si tiene menos de 40%
+            if (randomInt(1, 10) > 4){
+                heroe.salud += 40;
+                pociones --;
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 function enemigo_atacar(){

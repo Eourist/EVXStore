@@ -278,7 +278,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Unete a Evexnod Club</h5>
+        <h5 class="modal-title">Evexnod Club</h5>
         <button type="button" class="btn text-center" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"><i class="fas fa-times"></i></span>
         </button>
