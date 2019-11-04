@@ -8,7 +8,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 	<div class="row" style="margin-top: 30px;">
 		<?php $i = 0; foreach ($juegos as $juego) { $i++; ?>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-				<div class="evx-panel-juego">
+				<div class="evx-panel-juego" style="background-image: url('<?php echo base_url() ?>assets/img/juegos/<?php echo $juego->img_tienda ?>.png'); background-size: 100%">
 					<div class="row" style="height: 10%;">
 						<div class="col-sm-12">
 							<h4><?php echo $juego->nombre; ?></h4>

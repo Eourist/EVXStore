@@ -14,7 +14,7 @@ class Tienda_model extends CI_Model {
 
 	public function obtener($atributo, $valor)
 	{
-		$this->db->select('evx_juegos.id, evx_juegos.nombre, evx_juegos.precio, evx_juegos.descripcion, evx_juegos.imagen');
+		$this->db->select('evx_juegos.id, evx_juegos.nombre, evx_juegos.precio, evx_juegos.descripcion, evx_juegos.img_tienda, evx_juegos.img_perfil');
 		$this->db->from('evx_juegos');
 		$this->db->where('evx_juegos.'.$atributo, $valor);
 
@@ -24,8 +24,9 @@ class Tienda_model extends CI_Model {
 
 	public function obtener_lista()
 	{
-		$this->db->select('evx_juegos.id, evx_juegos.nombre, evx_juegos.precio, evx_juegos.descripcion, evx_juegos.imagen');
+		$this->db->select('evx_juegos.id, evx_juegos.nombre, evx_juegos.precio, evx_juegos.descripcion, evx_juegos.img_tienda, evx_juegos.img_perfil');
 		$this->db->from('evx_juegos');
+		$this->db->order_by('evx_juegos.descripcion', 'ASC');
 
 		$query = $this->db->get();
 		return $query->result();

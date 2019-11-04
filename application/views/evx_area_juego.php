@@ -14,7 +14,6 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 				<div class="panel-b-txt" style="text-align: left; text-align: justify;">
 					El área de juego de Evexnod es el mejor lugar para disfrutar de juegos totalmente gratuitos desde el navegador. <br>
 					Los juegos estan disponibles sin costo alguno para todos los miembros de la comunidad que hayan iniciado sesión.
-					<?php echo $puntajes[0]->nombre_usuario ?>
 				</div>
 			</div>
 		</div>

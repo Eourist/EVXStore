@@ -58,7 +58,9 @@ CREATE TABLE `evx_juegos` (
   `nombre` varchar(255) NOT NULL,
   `precio` int(11) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
-  `imagen` varchar(255) NOT NULL
+  `img_tienda` varchar(255) NOT NULL,
+  `img_perfil` varchar(255) NOT NULL,
+  `file_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -66,12 +68,12 @@ CREATE TABLE `evx_juegos` (
 --
 
 INSERT INTO `evx_juegos` (`id`, `nombre`, `precio`, `descripcion`, `imagen`) VALUES
-(1, 'Operation Reconquest', 1500, '', ''),
-(2, 'Rhan\'s Journey', 2000, '', ''),
-(3, 'Defense of Twedjen Tower', 1500, '', ''),
-(4, 'Endless Asteroids', 1000, '', ''),
-(5, 'Battle of Dungeon: Defender', 1500, '', ''),
-(6, 'Tomb Quest', 0, '', '');
+(1, 'Operation Reconquest', 1500, '', '', ''),
+(2, 'Rhan\'s Journey', 2000, '', '', ''),
+(3, 'Defense of Twedjen Tower', 1500, '', '', ''),
+(4, 'Endless Asteroids', 1000, '', '', ''),
+(5, 'Battle of Dungeon: Defender', 1500, '', '', ''),
+(6, 'Tomb Quest', 0, '', '', '');
 
 -- --------------------------------------------------------
 

@@ -46,7 +46,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 	<div class="panel-juego">
 		<div class="row">
 			<div class="col-sm-3">
-				<div class="panel-juego-img">
+				<div class="panel-juego-img img-responsive" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/<?php echo $juego->img_perfil ?>.png'); background-position: center; background-repeat: no-repeat; background-size: 100%">
 					
 				</div>
 			</div>
@@ -68,7 +68,11 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 								Puntaje máximo: <?php echo $juego->puntaje_maximo; ?>
 							</div>
 							<div class="col-sm-2 align-self-center">
-								<button type="submit" class="btn btn-form" style="width: 100%"><span>Descargar</span><i class="fas fa-download"></i></button>
+								<?php if($juego->file_name) { ?>
+								<a href="<?php echo base_url() ?>assets/files/<?php echo $juego->file_name ?>.exe" download class="btn btn-form" style="width: 100%"><span>Descargar</span><i class="fas fa-download"></i></a>
+								<?php } else { ?>
+								<a href="<?php echo base_url(); ?>inicio/juego" class="btn btn-form" style="width: 100%"><span>Jugar</span><i class="fas fa-gamepad"></i></a>
+								<?php } ?>
 							</div>
 						</div>
 					</div>

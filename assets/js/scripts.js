@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	$('.row-monedas').click(function() {
 		$('.row-monedas').children('.fondo-radio').children('.radio-cantidad').removeAttr('checked');
 		$('.row-monedas').css({

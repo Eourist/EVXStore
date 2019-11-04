@@ -47,7 +47,7 @@
   <div class="panel-b">
     <div class="row">
       <div class="col-sm-5">
-        <div class="panel-b-img">
+        <div class="panel-b-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/aa2.png');  background-size: 100%">
           
         </div>
       </div>
@@ -61,7 +61,7 @@
 
 
   <div class="titulo">
-    Y LAS MEJORES OFERTAS
+    LOS PRECIOS MAS BAJOS
   </div>
 
   <div class="panel-b">
@@ -72,20 +72,20 @@
         </div>
       </div>
       <div class="col-sm-5">
-        <div class="panel-b-img">
+        <div class="panel-b-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/N2.png');  background-size: 100%">
           
         </div>
       </div>
     </div>
   </div>
   <div class="titulo">
-    EN LA TIENDA DEFINITIVA
+    LA TIENDA DEFINITIVA
   </div>
 
   <div class="panel-b">
     <div class="row">
       <div class="col-sm-5">
-        <div class="panel-b-img">
+        <div class="panel-b-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/N3.png');  background-size: 100%">
           
         </div>
       </div>
@@ -99,7 +99,7 @@
 
 
   <div class="titulo">
-    CON LA MEJOR COMUNIDAD
+    LA MEJOR COMUNIDAD
   </div>
 
   <div class="panel-b">
@@ -110,7 +110,7 @@
         </div>
       </div>
       <div class="col-sm-5">
-        <div class="panel-b-img">
+        <div class="panel-b-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/N4.png');  background-size: 100%">
           
         </div>
       </div>
