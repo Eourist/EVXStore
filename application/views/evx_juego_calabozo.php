@@ -1,30 +1,34 @@
 <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/juego_syle.css"> -->
-
+<style> body{ overflow: hidden; } </style>
 <div class="container evx-main-container" style="
-background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 100%);">
+background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 100%); image-rendering: pixelated;">
 	<div class="titulo"> Nombre del juego </div>
 	<div class="row" style="padding: 30px;">
 		<div class="col-sm-5">
 			<div class="direcciones" style="position: fixed; width: 400px; height: 400px;">
-				<button class="btn btn-primary btn-sm" id="dir-left" onclick="movimiento('left')"
+				<button class="btn btn-default btn-sm" id="dir-left" onclick="movimiento('left')"
 				style="position:fixed; margin-top: 185px; margin-left: 0px; height: 20px; text-align: center; padding: 0px;">       
 				</button>
 
-				<button class="btn btn-primary btn-sm" id="dir-right" onclick="movimiento('right')"
+				<button class="btn btn-default btn-sm" id="dir-right" onclick="movimiento('right')"
 				style="position:fixed; margin-top: 185px; margin-left: 379px;height: 20px; text-align: center; padding: 0px;">       
 				</button>
 
-				<button class="btn btn-primary btn-sm"  id="dir-up" onclick="movimiento('up')"
+				<button class="btn btn-default btn-sm"  id="dir-up" onclick="movimiento('up')"
 				style="position:fixed; margin-top: 0px; margin-left: 185px; height: 20px; text-align: center; padding: 0px;">       
 				</button>
 
-				<button class="btn btn-primary btn-sm"  id="dir-down" onclick="movimiento('down')"
+				<button class="btn btn-default btn-sm"  id="dir-down" onclick="movimiento('down')"
 				style="position:fixed; margin-top: 380px; margin-left: 185px; height: 20px; text-align: center; padding: 0px;">       
 				</button>
 			</div>
 
+			<div id="heroe1" style="position:fixed; margin-top: 140px; margin-left: 175px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;"></div>
+			<div id="heroe2" style="position:fixed; margin-top: 190px; margin-left: 150px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;"></div>
+			<div id="heroe3" style="position:fixed; margin-top: 190px; margin-left: 200px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;"></div>
 			<div class="pieza animated" id="tablero" style="background: gray; width: 400px; height: 400px;border: 2px solid #f71414; background-repeat: no-repeat; background-size: 100%;">
 			</div>	
+
 		</div>
 		<div class="col-sm-7 align-self-center">
 			<div class="panel-b-txt" style="margin-top: 15px !important;">

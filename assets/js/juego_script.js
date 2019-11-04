@@ -115,18 +115,22 @@ var objetivo_c = 'null';
 
 function inicializar_heroes(){ // MEJORAR
     heroe1 = (heroe1 == 'tanque') 
-            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque' }
-            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero' };
+            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: base_url + 'assets/img/dng/tanque.png' }
+            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero', img: base_url + 'assets/img/dng/guerrero.png' };
     heroe1['nombre'] = 'heroe1';
     heroe2 = (heroe2 == 'tanque') 
-            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque' }
-            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero' };
+            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: base_url + 'assets/img/dng/tanque.png' }
+            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero', img: base_url + 'assets/img/dng/guerrero.png' };
     heroe2['nombre'] = 'heroe2';
     heroe3 = (heroe3 == 'tanque') 
-            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque' }
-            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero' };
+            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: base_url + 'assets/img/dng/tanque.png' }
+            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero', img: base_url + 'assets/img/dng/guerrero.png' };
     heroe3['nombre'] = 'heroe3';
     heroes = [heroe1, heroe2, heroe3];
+
+    $('#heroe1').css('background-image', 'url('+heroe1.img+')');
+    $('#heroe2').css('background-image', 'url('+heroe2.img+')');
+    $('#heroe3').css('background-image', 'url('+heroe3.img+')');
 }
 
 function jugador_atacar(){
@@ -144,15 +148,17 @@ function jugador_atacar(){
             // Ya atacaron todos los heroes
             console.log('Fin del turno.');
             clearInterval(intervaloAtaque);
-        } else if (curacion(heroes[heroe_actual])) {
-            // Decidir si se cura o no segun "estrategia de combate" y la salud actual
-            heroe_actual++;
-            console.log('El heroe ' + heroe_actual + ' usó una poción para curarse');
         } else if (objetivo.salud > 0) {
             if (heroes[heroe_actual].salud > 0) {
-                // Atacar
-                objetivo.salud -= heroes[heroe_actual].daño / 2;
-                console.log('El heroe ' + heroe_actual + ' atacó al enemigo en la posición: ' + objetivo.zona + '!');
+                // Decidir si se cura o no
+                var recibe_curacion = curacion(heroes[heroe_actual]);
+                if (!recibe_curacion){
+                    // Atacar
+                    objetivo.salud -= heroes[heroe_actual].daño / 2;
+                    console.log('El heroe ' + heroe_actual + ' atacó al enemigo en la posición: ' + objetivo.zona + '!');
+                } else {
+                    console.log('El heroe ' + heroe_actual + ' se curó con una poción!');
+                }
             } else {
                 // El heroe está muerto
                 console.log('El heroe ' + heroe_actual + ' no puede atacar porque esta muerto!');
@@ -166,8 +172,15 @@ function jugador_atacar(){
     }, 1000);
 }
 
+// Debug
+function sacar_vida_heroes(){
+    heroes.forEach(function(item, index){
+        item.salud = item.salud_in * 0.2;
+    });
+    console.log(heroes);
+}
+
 function curacion(heroe){
-    console.log(heroe);
     if (defenderse){
         if (heroe.salud < (heroe.salud_in - 40)){
             heroe.salud += 40;
@@ -175,7 +188,7 @@ function curacion(heroe){
             return true;
         }
     } else {
-        if (heroe.salud < (heroe.salud_in * 0.7)){
+        if (heroe.salud < (heroe.salud_in * 0.7) && heroe.salud > (heroe.salud_in * 0.4)){
             // Si tiene menos del 70%
             if (randomInt(1, 10) > 9){
                 heroe.salud += 40;
@@ -226,10 +239,21 @@ function enemigo_atacar(){
 function render(){
     enemigos.forEach(function(item, index){
         if (item.salud <= 0){
-            item.elem.css('background-color', 'rgba(0,0,0,0)');
+            item.elem.removeClass('flash');
+            item.elem.addClass('flash');
+            item.elem.children('.en_vida').html('');
+            item.elem.css('background-image', 'none');
             item.elem.html('');
         } else {
-            item.elem.html(item.salud);
+            item.elem.removeClass('pulse');
+            if (item.elem.children('.en_vida').html() != item.salud){
+                item.elem.addClass('pulse');
+                item.elem.children().css('color', 'red');
+                setTimeout(function(){
+                    item.elem.children().css('color', 'white');
+                }, 500);
+            }
+            item.elem.children('.en_vida').html(item.salud);
         }
     });
 }
@@ -313,7 +337,7 @@ function llenarCamino(dir){
     //
 
     // Agregar enemigo con los margenes proporcionados
-    tablero.append('<div id="mob-'+dir+'" style="text-align: center; padding: 0px;position: fixed; margin-top: '+m_top+'px; margin-left: '+m_left+'px; background-color: red; height: 50px; width: 50px;"></div>');
+    tablero.append('<div class="animated" id="mob-'+dir+'" style="text-align: center; padding: 0px;position: fixed; margin-top: '+m_top+'px; margin-left: '+m_left+'px; background-image: url('+base_url+'assets/img/dng/ogro.png); background-size: 100%; height: 50px; width: 50px;"></div>');
     
     // Decidir la cantidad de enemigos que puede haber en un camino
     var cantidad_enemigos = randomInt(1,10);
@@ -331,7 +355,7 @@ function llenarCamino(dir){
             elem:   elem,
             zona:   dir
         }
-        enemigos[enemigos_activos].elem.append('<span>' + enemigos[enemigos_activos].salud + '</span>');
+        enemigos[enemigos_activos].elem.append('<div class="en_vida animated" style="margin-top: -18px; color: white; font-weigth: bold">' + enemigos[enemigos_activos].salud + '</div>');
         enemigos_activos += cantidad_enemigos;
     //
 }
