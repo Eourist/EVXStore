@@ -16,7 +16,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('carrusel');
 		$this->load->view('evx_portal_row_paneles');
 		$this->load->view('footer');
-		$this->load->view('responsive');
+		//$this->load->view('responsive');
 	}
 
 	public function perfil_usuario()
@@ -27,7 +27,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('evx_navbar');
 		$this->load->view('evx_perfil', $data);
 		$this->load->view('footer');
-		$this->load->view('responsive');
+		//$this->load->view('responsive');
 	}
 
 	public function tienda()
@@ -39,7 +39,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('evx_navbar');
 		$this->load->view('evx_tienda', $lista);
 		$this->load->view('footer');
-		$this->load->view('responsive');
+		//$this->load->view('responsive');
 	}
 
 	public function juegos()
@@ -53,7 +53,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('evx_navbar');
 		$this->load->view('evx_area_juego', $data);
 		$this->load->view('footer');
-		$this->load->view('responsive');
+		//$this->load->view('responsive');
 	}
 
 	public function noticias()
@@ -62,7 +62,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('evx_navbar');
 		$this->load->view('evx_noticias');
 		$this->load->view('footer');
-		$this->load->view('responsive');
+		//$this->load->view('responsive');
 	}
 
 	public function juego()
@@ -71,6 +71,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('evx_navbar');
 		$this->load->view('evx_juego_calabozo');
 		$this->load->view('footer');
+		//$this->load->view('responsive');
 	}
 
 	public function mejora_premium()
@@ -131,7 +132,8 @@ class Inicio extends CI_Controller {
 					$data_juego = array(
 						'usuario_id' 	=> $usuario_id,
 						'juego_id'		=> $juego_id,
-						'fecha_compra'	=> date('Y-m-d')
+						'fecha_compra'	=> date('Y-m-d'),
+						'puntaje_maximo'=> rand(18, 1230)
 					);
 					$this->usuario_model->alta_juego($data_juego);
 

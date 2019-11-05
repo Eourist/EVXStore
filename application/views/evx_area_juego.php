@@ -1,12 +1,13 @@
+<style></style>
 <div class="container evx-main-container" style="
-background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 100%)">
+background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 100%);">
 	<div class="titulo">
 		<i class="fas fa-gamepad" style="font-size: 30px;"></i> Área de juego
 	</div>
 	<div class="panel-b">
 		<div class="row">
 			<div class="col-sm-5">
-				<div class="panel-b-img">
+				<div class="panel-b-img img-area-juego"  style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/N1.png');  background-size: 100%">
 
 				</div>
 			</div>
@@ -30,9 +31,9 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 			</div>
 		</div>
 	<?php } ?>
-<div class="row" style="margin-top: 30px;">
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-			<div class="evx-panel-juego">
+	<div class="row" style="margin-top: 30px;">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+			<div class="evx-panel-juego" style="background-image: url('<?php echo base_url() ?>assets/img/juegos/5.png'); background-size: 100%">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
 						<h4>TOMB QUEST</h4>
@@ -63,17 +64,17 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 					</div>
 				</div>
 
-				<div class="row" style="height: 10%; <?php echo (isset($id)) ? '' : 'display: none'; ?>">
-					<div class="col-sm-10" style="padding-right: 5px;">
+				<div class="row row-botones" style="height: 10%;<?php echo (isset($id)) ? '' : ' display: none'; ?>">
+					<div class="col-sm-8 col-md-9 col-lg-10 col-xs-12" style="padding-right: 5px;">
 						<a class="btn btn-comprar" style="width: 100%" href="<?php echo base_url() ?>inicio/juego">JUGAR</a>
 					</div>
-					<div class="col-sm-2" style="padding-left: 0px; text-align: center;">
+					<div class="col-sm-4 col-md-3 col-lg-2 d-none d-sm-block" style="padding-left: 0px; text-align: center;">
 						<button class="btn btn-comprar btn-sb" style="width: 100%;" id="sb-1"><i class="fas fa-info-circle"></i></button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
@@ -88,17 +89,17 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 					</div>
 				</div>
 
-				<div class="row" style="height: 10%; <?php echo (isset($id)) ? '' : 'display: none'; ?>">
-					<div class="col-sm-10" style="padding-right: 5px;">
+				<div class="row row-botones" style="height: 10%; <?php echo (isset($id)) ? '' : 'display: none'; ?>">
+					<div class="col-sm-8 col-md-9 col-lg-10 col-xs-12" style="padding-right: 5px;">
 						<button class="btn btn-comprar" style="width: 100%" disabled>JUGAR</button>
 					</div>
-					<div class="col-sm-2" style="padding-left: 0px; text-align: center;">
+					<div class="col-sm-4 col-md-3 col-lg-2 d-none d-sm-block" style="padding-left: 0px; text-align: center;">
 						<button class="btn btn-comprar btn-sb" style="width: 100%;" id="sb-2"><i class="fas fa-info-circle"></i></button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 			<div class="evx-panel-juego">
 				<div class="row" style="height: 10%;">
 					<div class="col-sm-12">
@@ -113,11 +114,11 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 					</div>
 				</div>
 
-				<div class="row" style="height: 10%; <?php echo (isset($id)) ? '' : 'display: none'; ?>">
-					<div class="col-sm-10" style="padding-right: 5px;">
+				<div class="row row-botones" style="height: 10%; <?php echo (isset($id)) ? '' : 'display: none'; ?>">
+					<div class="col-sm-8 col-md-9 col-lg-10 col-xs-12" style="padding-right: 5px;">
 						<button class="btn btn-comprar" style="width: 100%" disabled>JUGAR</button>
 					</div>
-					<div class="col-sm-2" style="padding-left: 0px; text-align: center;">
+					<div class="col-sm-4 col-md-3 col-lg-2 d-none d-sm-block" style="padding-left: 0px; text-align: center;">
 						<button class="btn btn-comprar btn-sb" style="width: 100%;" id="sb-3"><i class="fas fa-info-circle"></i></button>
 					</div>
 				</div>

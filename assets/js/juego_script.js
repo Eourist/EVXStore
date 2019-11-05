@@ -389,7 +389,6 @@ function movimiento(dir = 'null', pieza_pre = 'null'){
             llenarCamino('right');
     //
     $('#zonas').html(piezas_recorridas);
-    console.log(enemigos);
     if(atacar){
         enemigo_atacar();
     }

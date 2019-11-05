@@ -7,7 +7,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
   <div class="panel-b">
     <div class="row">
       <div class="col-sm-5">
-        <div class="panel-b-img noticia-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/aa2.png');  background-size: 100%">
+        <div class="panel-b-img noticia-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/N1.png');  background-size: 100%">
           
         </div>
       </div>

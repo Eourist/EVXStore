@@ -47,7 +47,7 @@
   <div class="panel-b">
     <div class="row">
       <div class="col-sm-5">
-        <div class="panel-b-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/aa2.png');  background-size: 100%">
+        <div class="panel-b-img" style="background-image: url('<?php echo base_url(); ?>assets/img/juegos/N1.png');  background-size: 100%">
           
         </div>
       </div>
@@ -68,7 +68,7 @@
     <div class="row">
       <div class="col-sm-7 align-self-center">
         <div class="panel-b-txt" style="text-align: center;">
-          Explora la Evexnod Store para descubrir ofertas <br> ¡Los miembros del EvexnodClub obtienen un 20% en todo!
+          Explora la Evexnod Store para descubrir ofertas <br> ¡Los miembros del EvexnodClub obtienen un 20% de descuento!
         </div>
       </div>
       <div class="col-sm-5">
