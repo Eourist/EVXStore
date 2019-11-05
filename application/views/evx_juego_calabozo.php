@@ -2,9 +2,14 @@
 <style> body{ overflow: hidden; } </style>
 <div class="container evx-main-container" style="
 background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 100%); image-rendering: pixelated;">
-	<div class="titulo"> Nombre del juego </div>
-	<div class="row" style="padding: 30px;">
+	<div class="titulo"> Tomb Quest </div>
+	<div class="row" id="canvas-juego" style="padding: 30px;">
 		<div class="col-sm-5">
+			<div style="position: fixed; color: white; margin: 5px;">
+				Puntaje: <span id="puntos">0</span><br>
+				Zona: <span id="zonas">0</span><br>
+				Pociones: <span id="pociones">0</span>
+			</div>
 			<div class="direcciones" style="position: fixed; width: 400px; height: 400px;">
 				<button class="btn btn-default btn-sm" id="dir-left" onclick="movimiento('left')"
 				style="position:fixed; margin-top: 185px; margin-left: 0px; height: 20px; text-align: center; padding: 0px;">       
@@ -23,24 +28,30 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 				</button>
 			</div>
 
-			<div id="heroe1" style="position:fixed; margin-top: 140px; margin-left: 175px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;"></div>
-			<div id="heroe2" style="position:fixed; margin-top: 190px; margin-left: 150px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;"></div>
-			<div id="heroe3" style="position:fixed; margin-top: 190px; margin-left: 200px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;"></div>
+			<div id="heroe1" class="animated" style="position:fixed; margin-top: 140px; margin-left: 175px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;">
+				<div class="he_vida" style="color: white; margin-top: -25px;"></div>
+			</div>
+			<div id="heroe2" class="animated" style="position:fixed; margin-top: 190px; margin-left: 150px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;">
+				<div class="he_vida" style="color: white; margin-top: 50px;"></div>
+			</div>
+			<div id="heroe3" class="animated" style="position:fixed; margin-top: 190px; margin-left: 200px; height: 50px; text-align: center; padding: 0px; width: 50px; background-size: 100%;">
+				<div class="he_vida" style="color: white; margin-top: 50px;"></div>
+			</div>
 			<div class="pieza animated" id="tablero" style="background: gray; width: 400px; height: 400px;border: 2px solid #f71414; background-repeat: no-repeat; background-size: 100%;">
 			</div>	
 
 		</div>
-		<div class="col-sm-7 align-self-center">
+		<div class="col-sm-7 align-self-center" id="container-form">
 			<div class="panel-b-txt" style="margin-top: 15px !important;">
 				<div class="formulario-configuracion">
 					<h3 style="text-align: center; border-bottom: 3px solid #f71414">OPCIONES DE LA PARTIDA</h3>
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-6">
-								<label for="distribucion_atq">Distribucion de ataques</label>
+								<label for="centrarse-select">Distribucion de ataques</label>
 								<div class="input-group">
-									<select name="distribucion_atq" id="distribucion_atq" class="form-control">
-										<option value="0">Centrado</option>
+									<select name="centrarse-select" id="centrarse-select" class="form-control">
+										<option value="1">Centrado</option>
 										<option value="0">Disperso</option>
 									</select>
 									<div class="input-group-btn">
@@ -49,10 +60,10 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 								</div>
 							</div>
 							<div class="col-sm-6">
-								<label for="estilo_def">Estrategia de combate</label>
+								<label for="defenderse-select">Estrategia de combate</label>
 								<div class="input-group">
-									<select name="estilo_def" id="estilo_def" class="form-control">
-										<option value="0">Defensivo</option>
+									<select name="defenderse-select" id="defenderse-select" class="form-control">
+										<option value="1">Defensivo</option>
 										<option value="0">Agresivo</option>
 									</select>
 									<div class="input-group-btn">
@@ -65,30 +76,30 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-3">
-								<label>Heroe 1</label>
-								<select name="" id="c1" class="form-control">
-									<option value="0">Guerrero</option>
-									<option value="1">SuperGuerrero</option>
-									<option value="2">Tanque</option>
-									<option value="3">SuperTanque</option>
+								<label for="heroe1-select">Heroe 1</label>
+								<select name="heroe1-select" id="heroe1-select" class="form-control">
+									<option value="tanque">Tanque</option>
+									<!-- <option value="1">SuperGuerrero</option> -->
+									<option value="guerrero">Guerrero</option>
+									<!-- <option value="3">SuperTanque</option> -->
 								</select>
 							</div>
 							<div class="col-sm-3">
-								<label>Heroe 2</label>
-								<select name="" id="c2" class="form-control">
-									<option value="0">Guerrero</option>
-									<option value="1">SuperGuerrero</option>
-									<option value="2">Tanque</option>
-									<option value="3">SuperTanque</option>
+								<label for="heroe2-select">Heroe 2</label>
+								<select name="heroe2-select" id="heroe2-select" class="form-control">
+									<option value="guerrero">Guerrero</option>
+									<!-- <option value="1">SuperGuerrero</option> -->
+									<option value="tanque">Tanque</option>
+									<!-- <option value="3">SuperTanque</option> -->
 								</select>
 							</div>
 							<div class="col-sm-3">
-								<label>Heroe 3</label>
-								<select name="" id="c3" class="form-control">
-									<option value="0">Guerrero</option>
-									<option value="1">SuperGuerrero</option>
-									<option value="2">Tanque</option>
-									<option value="3">SuperTanque</option>
+								<label for="heroe3-select">Heroe 3</label>
+								<select name="heroe3-select" id="heroe3-select" class="form-control">
+									<option value="guerrero">Guerrero</option>
+									<!-- <option value="1">SuperGuerrero</option> -->
+									<option value="tanque">Tanque</option>
+									<!-- <option value="3">SuperTanque</option> -->
 								</select>
 							</div>
 							<div class="col-sm-3">
@@ -111,9 +122,9 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 									<div class="col-sm-4" style="height: 100%; background-color: red">
 									</div>
 									<div class="col-sm-8">
-										<input type="text" class="form-control">
+										<input id="input-pociones" type="text" class="form-control">
 										<br>
-										<input type="text" class="form-control">
+										<input type="text" class="form-control" disabled>
 									</div>
 								</div>
 							</div>
@@ -121,9 +132,9 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 								<h5 style="text-align: center;">EXPLOSIVOS</h5>
 								<div class="row" style="height: 80%;">
 									<div class="col-sm-8">
-										<input type="text" class="form-control">
+										<input type="text" class="form-control" disabled>
 										<br>
-										<input type="text" class="form-control">
+										<button type="button" class="btn btn-primary" onclick="inicializar();">Confirmar</button>
 									</div>
 									<div class="col-sm-4" style="height: 100%; background-color: red">
 									</div>
