@@ -129,12 +129,20 @@ class Inicio extends CI_Controller {
 				} else {
 					$data_creditos = array( 'creditos' => $creditos - $precio );
 					$this->usuario_model->modifica($data_creditos, $usuario_id);
+					$puntaje = rand(18, 1230);
 					$data_juego = array(
 						'usuario_id' 	=> $usuario_id,
 						'juego_id'		=> $juego_id,
 						'fecha_compra'	=> date('Y-m-d'),
-						'puntaje_maximo'=> rand(18, 1230)
+						'puntaje_maximo'=> $puntaje
 					);
+					$data_puntaje = array(
+						'usuario_id'=> $usuario_id,
+						'juego_id'	=> $juego_id,
+						'fecha'		=> date('Y-m-d'),
+						'puntaje'	=> $puntaje
+					);
+					$this->usuario_model->alta_puntaje($data_puntaje);
 					$this->usuario_model->alta_juego($data_juego);
 
 					$data = $this->usuario_model->obtener('id', $usuario_id);

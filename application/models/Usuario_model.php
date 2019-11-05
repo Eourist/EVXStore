@@ -81,4 +81,8 @@ class Usuario_model extends CI_Model {
 		$consulta = $this->db->get();
 		return $consulta->row();
 	}
+
+	public function alta_puntaje($data){
+		return $this->db->insert('evx_puntajes', $data);
+	}
 }

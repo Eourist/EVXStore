@@ -54,9 +54,9 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 							<tbody>
 								<?php for($i = 0; $i < 5; $i++) { ?>
 									<tr>
-										<td><?php echo $puntajes[$i]->fecha ?></td>
-										<td><?php echo $puntajes[$i]->nombre_usuario ?></td>
-										<td><?php echo $puntajes[$i]->puntaje ?></td>
+										<td><?php echo (isset($puntajes[$i]->fecha)) ? $puntajes[$i]->fecha : ''; ?></td>
+										<td><?php echo (isset($puntajes[$i]->nombre_usuario)) ? $puntajes[$i]->nombre_usuario : ''; ?></td>
+										<td><?php echo (isset($puntajes[$i]->puntaje)) ? $puntajes[$i]->puntaje : ''; ?></td>
 									</tr>
 								<?php } ?>
 							</tbody>
