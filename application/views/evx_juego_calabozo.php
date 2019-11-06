@@ -54,7 +54,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 										<option value="1">Centrado</option>
 										<option value="0">Disperso</option>
 									</select>
-									<div class="input-group-btn">
+									<div class="input-group-append">
 										<button type="button" class="btn btn-primary form-control" style=""><i class="fas fa-question-circle"></i></button>
 									</div>
 								</div>
@@ -66,7 +66,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 										<option value="1">Defensivo</option>
 										<option value="0">Agresivo</option>
 									</select>
-									<div class="input-group-btn">
+									<div class="input-group-append">
 										<button type="button" class="btn btn-primary form-control" style=""><i class="fas fa-question-circle"></i></button>
 									</div>
 								</div>
@@ -75,7 +75,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<label for="heroe1-select">Heroe 1</label>
 								<select name="heroe1-select" id="heroe1-select" class="form-control">
 									<option value="tanque">Tanque</option>
@@ -84,7 +84,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 									<!-- <option value="3">SuperTanque</option> -->
 								</select>
 							</div>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<label for="heroe2-select">Heroe 2</label>
 								<select name="heroe2-select" id="heroe2-select" class="form-control">
 									<option value="guerrero">Guerrero</option>
@@ -93,7 +93,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 									<!-- <option value="3">SuperTanque</option> -->
 								</select>
 							</div>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<label for="heroe3-select">Heroe 3</label>
 								<select name="heroe3-select" id="heroe3-select" class="form-control">
 									<option value="guerrero">Guerrero</option>
@@ -102,7 +102,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 									<!-- <option value="3">SuperTanque</option> -->
 								</select>
 							</div>
-							<div class="col-sm-3">
+							<!-- <div class="col-sm-3">
 								<label>Heroe 4 <i class="fas fa-lock"></i></label>
 								<select name="" id="c4" class="form-control" disabled="">
 									<option value=""></option>
@@ -111,12 +111,27 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 									<option value="2">Tanque</option>
 									<option value="3">SuperTanque</option>
 								</select>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-sm-6">
+							<div class="col-sm-8">
+								<label for="input-pociones">Pociónes</label>
+								<div class="input-group">
+									<input type="text" class="form-control" id="input-pociones" value="<?php echo (isset($pociones)) ? $pociones : 5; ?>" disabled>
+									<div class="input-group-append">
+										<button class="btn btn-primary" onclick="comprar_pocion()" type="button">Comprar poción (10 <i class="fas fa-coins"></i>)</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<label> </label>
+								<div class="input-group">
+									<button type="button" class="btn btn-primary" onclick="inicializar();" style="width: 100%">Comenzar partida</button>
+								</div>
+							</div>
+							<!-- <div class="col-sm-6">
 								<h5 style="text-align: center;">POCIONES</h5>
 								<div class="row" style="height: 80%;">
 									<div class="col-sm-4" style="height: 100%; background-color: red">
@@ -139,7 +154,7 @@ background: radial-gradient(circle, rgba(40,40,40,0.8) 0%, rgba(28,28,28,0.8) 10
 									<div class="col-sm-4" style="height: 100%; background-color: red">
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<br>

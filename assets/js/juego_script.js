@@ -150,24 +150,26 @@ function inicializar(){
 
     heroe1 = (heroe1 == 'tanque') 
             ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: img_tanque, elem: $('#heroe1'), nombre: 'heroe1' }
-            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe1'), nombre: 'heroe1' };
+            : { salud_in: 75, salud: 75, daño: 70, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe1'), nombre: 'heroe1' };
     heroe2 = (heroe2 == 'tanque') 
             ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: img_tanque, elem: $('#heroe2'), nombre: 'heroe2' }
-            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe2'), nombre: 'heroe2' };
+            : { salud_in: 75, salud: 75, daño: 70, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe2'), nombre: 'heroe2' };
     heroe3 = (heroe3 == 'tanque') 
             ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: img_tanque, elem: $('#heroe3'), nombre: 'heroe3' }
-            : { salud_in: 75, salud: 75, daño: 60, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe3'), nombre: 'heroe3' };
+            : { salud_in: 75, salud: 75, daño: 70, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe3'), nombre: 'heroe3' };
 
     heroes = [heroe1, heroe2, heroe3];
     heroes.forEach(function(item, index){
         item.elem.css('background-image', 'url('+item.img+')');
         item.elem.children('.he_vida').html(item.salud);
     });
+    gastar_pociones();
     render();
     jugador_atacar();
 }
 
 function jugador_atacar(){
+    console.log("%c Comienza el turno del jugador", 'color: green');
     var heroe_actual = 0; // i
     // Intervalo de ataque que se repite segun la cantidad de heroes
     var intervalo_ataque = setInterval(function(){
@@ -176,12 +178,12 @@ function jugador_atacar(){
         var objetivo = (centrarse) ? objetivo_c : elegir_objetivo(enemigos);
         if (objetivo == 0){ 
             // elegir_objetivo() devuelve 0 si no encuentra ninguno vivo
-            console.log('¡No quedan enemigos vivos! Puedes moverte');
+            console.log('%c ¡No quedan enemigos vivos! Moviendose a otra zona...', 'color: green');
             movimiento();
             clearInterval(intervalo_ataque);
         }  else if (heroe_actual === heroes.length) {
             // Ya atacaron todos los heroes
-            console.log('Fin del turno.');
+            console.log('%c Fin del turno del jugador', 'color: green');
             enemigo_atacar();
             clearInterval(intervalo_ataque);
         } else if (objetivo.salud > 0) {
@@ -195,15 +197,15 @@ function jugador_atacar(){
                     objetivo.elem.removeClass('shake');
 
                     objetivo.salud -= heroes[heroe_actual].daño / 2;
-                    console.log('El heroe ' + heroe_actual + ' atacó al enemigo en la posición: ' + objetivo.zona + '!');
+                    console.log('%c El heroe ' + heroe_actual + ' atacó al enemigo en la posición: ' + objetivo.zona + '!', 'color: green');
                 } else {
                     heroes[heroe_actual].elem.removeClass('shake');
                     heroes[heroe_actual].elem.addClass('tada');
-                    console.log('El heroe ' + heroe_actual + ' se curó con una poción!');
+                    console.log('%c El heroe ' + heroe_actual + ' se curó con una poción!', 'color: green');
                 }
             } else {
                 // El heroe está muerto
-                console.log('El heroe ' + heroe_actual + ' no puede atacar porque esta muerto!');
+                console.log('El heroe ' + heroe_actual + ' no puede atacar porque esta muerto!', 'color: green');
             }
             heroe_actual++;
         } else {
@@ -217,6 +219,7 @@ function jugador_atacar(){
 }
 
 function enemigo_atacar(){
+    console.log("%c Comienza el turno del enemigo", 'color: red');
     var enemigo_actual = 0; // i
     // Intervalo de ataque que se repite segun la cantidad de enemigos
     var intervalo_ataque = setInterval(function(){
@@ -224,12 +227,12 @@ function enemigo_atacar(){
         var objetivo = elegir_objetivo(heroes);
         if (objetivo == 0){ 
             // elegir_objetivo() devuelve 0 si no encuentra ninguno vivo
-            console.log('¡No quedan heroes vivos! Fin del juego');
+            console.log('%c ¡No quedan heroes vivos! Fin del juego', 'color: red');
             clearInterval(intervalo_ataque);
             // game_over();
         } else if (enemigo_actual === enemigos.length){
             // Ya atacaron todos los enemigos
-            console.log('Fin del turno.');
+            console.log('%c Fin del turno del enemigo', 'color: red');
             jugador_atacar();
             clearInterval(intervalo_ataque);
         } else if (objetivo.salud > 0) {
@@ -240,10 +243,10 @@ function enemigo_atacar(){
                 objetivo.elem.removeClass('shake');
 
                 objetivo.salud -= enemigos[enemigo_actual].daño / 2;
-                console.log('El enemigo ' + enemigo_actual + ' atacó a: ' + objetivo.nombre + '! (' + objetivo.salud + ')');
+                console.log('%c El enemigo ' + enemigo_actual + ' atacó a: ' + objetivo.nombre + '! (' + objetivo.salud + ')', 'color: red');
             } else {
                 // El enemigo está muerto
-                console.log('El enemigo ' + enemigo_actual + ' no puede atacar porque esta muerto!');
+                console.log('%c El enemigo ' + enemigo_actual + ' no puede atacar porque esta muerto!', 'color: red');
             }
             enemigo_actual++;
         }
@@ -390,6 +393,7 @@ function movimiento(dir = 'null', pieza_pre = 'null'){
     //
     $('#zonas').html(piezas_recorridas);
     if(atacar){
+        console.log("%c El jugador avanzó a una nueva zona", 'color: blue');
         enemigo_atacar();
     }
 }
@@ -474,6 +478,26 @@ function elegir_objetivo(arreglo = enemigos){
         }
         return enemigo_seleccionado;
     }
+}
+
+function comprar_pocion(){
+    $.ajax({
+        url: base_url + 'inicio/comprar_pocion',
+        type: 'POST',
+        data: { pociones: parseInt($('#input-pociones').val())},
+        success: function(data){
+            data = jQuery.parseJSON(data);
+            $('#mostrar-creditos').html(data.creditos + ' ');
+            if (data.error != 1){
+                var pociones = parseInt($('#input-pociones').val());
+                $('#input-pociones').val(pociones + 1);
+            }
+        }
+    });
+}
+
+function gastar_pociones(){
+    $.ajax({url: base_url + 'inicio/gastar_pociones'});
 }
 
 function randomInt(min, max){ 

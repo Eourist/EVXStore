@@ -155,6 +155,28 @@ class Inicio extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function comprar_pocion()
+	{
+		$creditos = $this->session->userdata('creditos');
+
+		$data = array('creditos' => $creditos);
+		if ($creditos >= 10){
+			$data['creditos'] = (int)$creditos - 10;
+			$this->usuario_model->modifica($data, $this->session->userdata('id'));
+			$this->session->set_userdata('creditos', $creditos - 10);
+			$this->session->set_userdata('pociones', $this->input->post('pociones') + 1);
+		} else {
+			$data['error'] = 1;
+		}
+		echo json_encode($data);
+	}
+
+	public function gastar_pociones()
+	{
+		$this->session->unset_userdata('pociones');
+		echo json_encode(0);
+	}
+
 	public function cerrar_sesion()
 	{
 		$url = ($this->input->post('f_url') == 'perfil_usuario') ? 'inicio' : 'inicio/'.$this->input->post('f_url');
