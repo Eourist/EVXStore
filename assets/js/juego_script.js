@@ -112,6 +112,14 @@ var objetivo_c = 'null';
     var pociones;
     var heroes = new Array();
 //
+var vel = 1;
+function velocidad(activacion){
+    if (activacion = 'rapida'){
+        vel = 2;
+    } else {
+        vel = 1;
+    }
+}
 
 function inicializar_heroes(){ // VERSION VIEJA MEJORAR
     heroe1 = (heroe1 == 'tanque') 
@@ -149,14 +157,14 @@ function inicializar(){
     pociones = $('#input-pociones').val();
 
     heroe1 = (heroe1 == 'tanque') 
-            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: img_tanque, elem: $('#heroe1'), nombre: 'heroe1' }
-            : { salud_in: 75, salud: 75, daño: 70, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe1'), nombre: 'heroe1' };
+            ? { salud_in: 160, salud: 160, daño: 40, tipo: 'tanque', img: img_tanque, elem: $('#heroe1'), nombre: 'heroe1' }
+            : { salud_in: 70, salud: 70, daño: 80, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe1'), nombre: 'heroe1' };
     heroe2 = (heroe2 == 'tanque') 
-            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: img_tanque, elem: $('#heroe2'), nombre: 'heroe2' }
-            : { salud_in: 75, salud: 75, daño: 70, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe2'), nombre: 'heroe2' };
+            ? { salud_in: 160, salud: 160, daño: 40, tipo: 'tanque', img: img_tanque, elem: $('#heroe2'), nombre: 'heroe2' }
+            : { salud_in: 70, salud: 70, daño: 80, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe2'), nombre: 'heroe2' };
     heroe3 = (heroe3 == 'tanque') 
-            ? { salud_in: 150, salud: 150, daño: 30, tipo: 'tanque', img: img_tanque, elem: $('#heroe3'), nombre: 'heroe3' }
-            : { salud_in: 75, salud: 75, daño: 70, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe3'), nombre: 'heroe3' };
+            ? { salud_in: 160, salud: 160, daño: 40, tipo: 'tanque', img: img_tanque, elem: $('#heroe3'), nombre: 'heroe3' }
+            : { salud_in: 70, salud: 70, daño: 80, tipo: 'guerrero', img: img_guerrero, elem: $('#heroe3'), nombre: 'heroe3' };
 
     heroes = [heroe1, heroe2, heroe3];
     heroes.forEach(function(item, index){
@@ -213,8 +221,8 @@ function jugador_atacar(){
         }
         setTimeout(function(){
             render();
-        }, 1000);
-    }, 1600);
+        }, 1000 / vel);
+    }, 1600 / vel);
     
 }
 
@@ -252,8 +260,8 @@ function enemigo_atacar(){
         }
         setTimeout(function(){
             render();
-        }, 1000);
-    }, 1600);
+        }, 1000 / vel);
+    }, 1600 / vel);
 }
 
 function render(){
@@ -272,7 +280,7 @@ function render(){
                 item.elem.children().css('color', 'red');
                 setTimeout(function(){
                     item.elem.children().css('color', 'white');
-                }, 500);
+                }, 500 / vel);
             }
             item.elem.children('.en_vida').html(item.salud);
         }
@@ -293,7 +301,7 @@ function render(){
                 item.elem.children().css('color', 'red');
                 setTimeout(function(){
                     item.elem.children().css('color', 'white');
-                }, 500);
+                }, 500 / vel);
             } else if (item.elem.children('.he_vida').html() < item.salud){
                 // Curacion
                 item.elem.removeClass('tada');
@@ -301,7 +309,7 @@ function render(){
                 item.elem.children().css('color', 'green');
                 setTimeout(function(){
                     item.elem.children().css('color', 'white');
-                }, 500);  
+                }, 500 / vel);  
             }
             item.elem.children('.he_vida').html(item.salud);
         }
@@ -395,6 +403,7 @@ function movimiento(dir = 'null', pieza_pre = 'null'){
     if(atacar){
         console.log("%c El jugador avanzó a una nueva zona", 'color: blue');
         enemigo_atacar();
+        pociones =  parseInt(pociones) + randomInt(0, 2);
     }
 }
 
