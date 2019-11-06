@@ -42,6 +42,19 @@ class Inicio extends CI_Controller {
 		//$this->load->view('responsive');
 	}
 
+	public function cargar_puntaje()
+	{
+		$puntaje = $this->input->post('puntaje');
+
+		$data = array(
+			'usuario_id' 	=> $this->session->userdata('id'),
+			'juego_id' 		=> 6,
+			'puntaje'		=> $puntaje,
+			'fecha'			=> date('Y-m-d') 
+		);
+		$this->usuario_model->alta_puntaje($data);
+	}
+
 	public function juegos()
 	{
 		$this->load->model('tienda_model');
@@ -129,7 +142,7 @@ class Inicio extends CI_Controller {
 				} else {
 					$data_creditos = array( 'creditos' => $creditos - $precio );
 					$this->usuario_model->modifica($data_creditos, $usuario_id);
-					$puntaje = rand(18, 1230);
+					$puntaje = ($juego_id == 6) ? 0 : rand(18, 1230);
 					$data_juego = array(
 						'usuario_id' 	=> $usuario_id,
 						'juego_id'		=> $juego_id,

@@ -96,6 +96,7 @@ var enemigos_activos;
 var piezas_recorridas = 0;
 var potenciacion = 1;
 var pieza_actual;
+var puntaje_actual = 0;
 
 var objetivo_c = 'null';
 
@@ -141,6 +142,18 @@ function inicializar_heroes(){ // VERSION VIEJA MEJORAR
         item.elem.children('.he_vida').html(item.salud);
     });
     render();
+}
+
+function game_over(){
+    $.ajax({
+        url: base_url + 'inicio/cargar_puntaje',
+        type: 'POST',
+        data: { puntaje: puntaje_actual }
+    });
+    enemigos.forEach(function(item, index){
+        item.elem.hide();
+    });
+    console.log("FIN DEL JUEGO!");
 }
 
 function inicializar(){
@@ -205,6 +218,9 @@ function jugador_atacar(){
                     objetivo.elem.removeClass('shake');
 
                     objetivo.salud -= heroes[heroe_actual].daño / 2;
+                    if (objetivo.salud <= 0){
+                        puntaje_actual++;
+                    }
                     console.log('%c El heroe ' + heroe_actual + ' atacó al enemigo en la posición: ' + objetivo.zona + '!', 'color: green');
                 } else {
                     heroes[heroe_actual].elem.removeClass('shake');
@@ -237,7 +253,7 @@ function enemigo_atacar(){
             // elegir_objetivo() devuelve 0 si no encuentra ninguno vivo
             console.log('%c ¡No quedan heroes vivos! Fin del juego', 'color: red');
             clearInterval(intervalo_ataque);
-            // game_over();
+            game_over();
         } else if (enemigo_actual === enemigos.length){
             // Ya atacaron todos los enemigos
             console.log('%c Fin del turno del enemigo', 'color: red');
@@ -317,6 +333,7 @@ function render(){
 
     $('#pociones').html(pociones);
     $('#zonas').html(piezas_recorridas);
+    $('#puntos').html(puntaje_actual);
 }
 
 function curacion(heroe){
@@ -401,6 +418,8 @@ function movimiento(dir = 'null', pieza_pre = 'null'){
     //
     $('#zonas').html(piezas_recorridas);
     if(atacar){
+        puntaje_actual += 10;
+        $('#puntos').html(puntaje_actual);
         console.log("%c El jugador avanzó a una nueva zona", 'color: blue');
         enemigo_atacar();
         pociones =  parseInt(pociones) + randomInt(0, 2);
